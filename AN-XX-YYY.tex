@@ -1,0 +1,88 @@
+%%____________________________________________________________________________||
+
+%%____________________________________________________________________________||
+\RCS$Revision: 339081 $
+\RCS$HeadURL: svn+ssh://svn.cern.ch/reps/tdr2/notes/AN-XX-YYY/trunk/AN-XX-YYY.tex $
+\RCS$Id: AN-XX-YYY.tex 339081 2016-04-18 15:39:58Z sakuma $
+
+%%____________________________________________________________________________||
+\newlength\cmsFigWidth
+\ifthenelse{\boolean{cms@external}}{\setlength\cmsFigWidth{0.85\columnwidth}}{\setlength\cmsFigWidth{0.4\textwidth}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsLeft}{top\xspace}}{\providecommand{\cmsLeft}{left\xspace}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsRight}{bottom\xspace}}{\providecommand{\cmsRight}{right\xspace}}
+
+%%____________________________________________________________________________||
+\cmsNoteHeader{AN-XX-YYY}
+
+%%____________________________________________________________________________||
+\title{Simplified likelihood for public interpretation of results}
+
+%%____________________________________________________________________________||
+%\author[bristol]{R.~Aggleton}
+% \author[imperial]{M.~Baber}
+% \author[imperial]{R.~Bainbridge}
+% \author[vub]{F.~Blekman}
+% \author[imperial]{O.~Buchm\"uller}
+% \author[bristol]{J.~Brooke}
+% \author[imperial]{S.~Casasso}
+\author[imperial]{M.~Citron}
+\author[cern]{N.~Wardle}
+% \author[imperial]{A.~Elwood}
+% \author[bristol]{H.~Fl\"acher}
+% \author[rochester]{A.~Garcia-Bellido}
+% \author[imperial]{C.~Laner}
+% \author[rochester]{K.H.~Lo}
+% %\author[bristol]{C.~Lucas}
+% \author[imperial]{S.A.~Malik}
+% \author[imperial]{B.~Penning}
+% \author[bristol]{T.~Sakuma}
+% \author[vub]{D.~Smith^{1,}}
+% \author[imperial]{A.~Tapper}
+
+% \address[bristol]{University of Bristol, Bristol, UK}
+\address[imperial]{Imperial College, London, UK}
+\address[cern]{CERN, Geneva, CH}
+% \address[vub]{Vrije Universiteit Brussel, Brussel, BE}
+% \address[rochester]{University of Rochester, NY, US}
+
+%%____________________________________________________________________________||
+\date{\today}
+
+%%____________________________________________________________________________||
+\abstract{}
+
+%%____________________________________________________________________________||
+\hypersetup{ 
+  pdfauthor={Matthew Citron.},
+  pdftitle={Simplified likelihood for public interpretation
+  of results.
+  },
+  pdfsubject={CMS,
+  },
+  pdfkeywords={CMS
+  },
+}
+
+%%____________________________________________________________________________||
+\maketitle
+
+%%____________________________________________________________________________||
+\tableofcontents
+
+%%____________________________________________________________________________||
+\input{mydefs}
+\input{symbols}
+
+%%____________________________________________________________________________||
+\include{sec010_intro}
+\include{sec020_ssr}
+\include{sec030_simplified}
+\include{sec040_highestExcludingMethod}
+\include{sec050_conclusions}
+%%____________________________________________________________________________||
+\bibliography{auto_generated}
+
+%%____________________________________________________________________________||
+% \appendix
+%\include{secA10_fig_sig}
+

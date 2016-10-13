@@ -1,0 +1,146 @@
+%%____________________________________________________________________________||
+\section{Simplified likelihood}
+\label{sec:simplified-likelihood}
+
+The results of the (signal region masked) fit with aggregate regions described
+in Section~\ref{sec:aggregate-signal-regions} including predictions
+and uncertainties can be given for recasters to interprete their own
+models. However, many searches for new physics, including the \alphat,
+analyses have complex correlations between bins. Corelations 
+can be introduced through correlated systematic uncertainties as well as 
+through signal bins which are predicted with the same (or systematically
+correlated) control region bins. As will be shown, neglecting these 
+correlations can lead to significant bias in limits. However,
+the complexity of the true likelihood means it would be impractical
+and time consuming for recasters for use in interpreting their own models.
+
+This section details how analyses can release sufficient information for recasters to 
+accurately reproduce the results of the true likelihood (with aggregate regions or
+the full signal region) through the use of a simplified likelihood. This is defined
+in Section~\ref{sec:sl-definition} and only requires the covariance matrix
+in addition to the predictions from the analysis. The procedure for determining
+this covariance and defining the simplified likelihood is outlined in Section~\ref{sec:sl-procedure}.
+Section~\ref{sec:red-eff} describes how signal contamination may be accounted for
+through the use of the reduced efficiency method \cite{redeff}. Finally, results
+from the \alphat analysis are shown in Section~\ref{sec:results} including comparisons
+to the results of neglecting the correlations.
+
+
+\subsection{Definition of the simplified likelihood}
+\label{sec:sl-definition}
+The true likelihood for the full signal region is defined in Equations~\ref{eq:hadronicLikelihood}
+and \label{eq:controlLikelihood} and for the aggregate regions the 
+hadronic section is redefined to Equation~\ref{eq:agg-hadronicLikelihood}. The uncertainty
+of each signal region bin, $i$, as well as its correlation to all other signal region bins, $j$, 
+due to both systematic uncertainties and connection to the control region may be represented
+by elements of the symmetric covariance matrix $\mathbf{V}_{i,j}$. Where diagonal elements encode the 
+variance while off-diagonal elements encode the correlation between bins. The simplified likelihood
+may then be written as in Equation~\ref{eq:simplified-likelihood}.
+
+\begin{equation}
+\mathcal{L}_{\mathrm{simplified}}=\prod_i(\mathrm{Pois}(n_{i} |\, b_{i} + s_{i}\times\mu)
+)\times\exp((\mathbf{b}-\mathbf{b}_{0})^T\mathbf{V}^{-1}(\mathbf{b}-\mathbf{b}_{0}))
+\label{eq:simplified-likelihood}
+\end{equation}
+
+Where signal systematics have been dropped, $\mathbf{b}_{\mathrm{signal}}$ is the vector
+of background predictions in each bin, $\mathbf{b}_{\mathrm{signal},0}$ are their central values 
+and $\mathbf{V}$ is the covariance matrix. The procedure for deriving the predictions and covariance
+is described in \ref{sec:sl-procedure}. The likelihood is then minimized with respect to $\mu$ and $\mathbf{b}$.
+
+The simplified likelihood is an approximation as the nuisances, including the connections
+to the control regions are treated as symmetric and following gaussian pdfs.
+Nuisances which are not well described by the gaussian approximation, for example 
+to asymmetries or significantly different behaviour in the tails, may not be so well modelled.
+Signal systematics are also neglected, although these could be included as a simple
+extension if desired. Despite the loss of the details of the systematic modelling 
+as well as the explicit links to the control regions this simplified likelihood will
+be shown to be a good approximation of the true likelihood for the example of the
+\alphat analysis. 
+
+\subsection{Procedure for deriving inputs}
+
+To define the simplified likelihood the covariance and background predictions must be 
+provided by the analysis. This procedure is identical if using the 
+aggregated regions described in \ref{sec:aggregate-signal-region} or the nominal signal region. 
+The simplified likelihood does not contain the control region 
+section of the full likelihood. If the control regions are explicitly included in the analysis
+the values and uncertainties of the nuisances ($\rho$ and $a_i$)
+must be determined from a maximum likelihood fit considering only the control regions.
+These values and uncertainties must then be used to derive the predictions and covariance
+between the signal (or aggregate) region bins, $i$. If the control regions are not explicitly 
+included then no fit is necessary. The predictions in each bin, $\mathbf{b_0}$, can be 
+determined from the nuisances with values described above. To determine the covariance, pseudo-datasets are generated
+by sampling the pdfs of the nuisances. The covariance may then be determined as in Equation~\ref{eq-cov}.
+
+\begin{equation}
+\sigma_{ij}=\sum^N_{t=1}{\frac{(b^t_i-b_{0,i})\times(b^t_j-b_{0,j})}{N}}
+\label{eq-cov}
+\end{equation}
+
+where $\sigma_{ij}$ is the covariance between bins $i$ and $j$, $b^t_i$ is the
+the pseudo-data in bin $i$i for pseudo-dataset t, 
+$b_i$ is the prediction for bin $i$ and $N$ is the total number of generated pseudo-datasets.
+Note that when the effect of neglecting the correlations is tested the off diagonal 
+elements, $i\neqj$, are set to $\sigma_{ij} = 0$.
+
+
+\subsection{Aggregating with covariance}
+
+The covariance between bins provides an alternative method for aggregation. 
+Using the results from the nominal signal regions the predictons and covariance of aggregate regions
+may be determined as in Equation~\ref{eq-agg-cov}
+
+\begin{align}
+b_{0,I} = \sum_i b_{0,i} && \sigma_{IJ}=\sum_i\sum_j\sigma_{ij}
+\label{eq-agg-cov}
+\end{align}
+
+where $b_{0,I}$ is the predicted background for the aggregate bin $I$,
+$b_{0,i}$ is the predicted background in the original bin, $\sigma_{IJ}$
+is the covariance between aggregate regions $I,J$ and $\sigma_{ij}$ is
+the covariance in the original bins $i,j$. The sums are over all
+bins being aggregated into aggregate regions $I,J$. The predictions
+and covariance for the aggregate regions may then be used in defining 
+the simplified likelihood in Equation~\ref{eq-simplified-likelihood}.
+This method for aggregating is approximate as the uncertainties
+on the bins being aggregated are treated as symmetric and as following
+gaussian pdfs.
+
+
+
+% covariance must be taken as the result of a maximum likelihood fit considering the control regions only. 
+% If the control region is not included then the results fit may be taken. 
+%%____________________________________________________________________________||
+% \subsection{Motivation}
+% \begin{itemize}
+% \item Even with SSR recasters have insufficient information to reproduce analysis
+% \item Full likelihood is overkill - what is necessary?
+% \end{itemize}
+% \subsection{Theory}
+% \label{sec:sl-theory}
+% \begin{itemize}
+% \item Definition of simplified likelihood
+% \item Inputs needed
+% \item What's simplified? No signal systs, no CR, gaussian unc
+% \end{itemize}
+% \subsection{Procedure}
+% \label{sec:sl-procedure}
+% \begin{itemize}
+% \item Determining correlation matrix
+% \item Defining likelihood
+% \item For study of impact setting off-diag elements to 0
+% \end{itemize}
+% \subsection{Signal contamination}
+% \label{sec:signal-contamination}
+% \begin{itemize}
+% \item Definition of reduced efficiency method
+% \item What do recasters need to take account of contamination?
+% \end{itemize}
+% \subsection{Results}
+% \begin{itemize}
+% \item Covariance matrix
+% \item DeltaNLL vs r for example model (compare with + without correlations)
+% \item Limit planes for several models (T1qqqq, T2tt, T2bb)
+% \item Ratios + comparison to full
+% \end{itemize}

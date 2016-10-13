@@ -1,0 +1,24 @@
+%%____________________________________________________________________________||
+\section{Highest excluding method}
+\label{sec:high-exc-method}
+
+A further simplification can be made from the simplified
+likelihood defined in Section~\ref{sec:simplified-likelihood}.
+Aggregate regions may be defined, which can be overlapping,
+and the prediction and uncertainty for each of these regions
+released. When deriving limits the recaster may define a
+separate likelihood for each of these regions as shown in
+Equation~\ref{eq-high-likelihood}.
+
+\begin{equation}
+\mathcal{L}_{i}=\mathrm{Pois}(n_{i} |\, b_{i} + s_{i}\times\mu)
+\times\exp(\frac{(b_i-b_{i,0})^2}{\sigma_{ii}})
+\label{eq:high-likelihood}
+\end{equation}
+
+where $sigma_{ii}$ is the variance for region $i$. When interpreting 
+a model the recaster derives the 95\% upper limit for each of the 
+regions separately and takes the exclusion from the bin 
+giving the strongest limit for the model. The correlation
+scheme does not need to be considered as only one region
+provides the limit.
