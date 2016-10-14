@@ -2,6 +2,48 @@
 \section{Simplified likelihood}
 \label{sec:simplified-likelihood}
 
+This section describes a procedure for using the information provided by the CMS Collaboration to 
+re-interpret searches for new physics through the use of a simplified likelihood. The likelihood is 
+constructed from a product of counting experiments, representing each search bin in one or more search regions. 
+For a given bin, $i$, the probability to observe $n_{i}$ events is given by
+
+\begin{equation}
+P(\mu)_{i} = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
+\label{eq:poisson-likelihood}
+\end{equation}
+
+where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions. 
+The likelihood for a search containing $N$ search regions is constructed as the product 
+of the probabilities across the $N$ search regions, 
+
+\begin{equation}
+\mathcal{L}(\mu) = \Prod_{i=1}^{N} P(\mu)_{i}
+\label{eq:stat-likelihood}
+\end{equation}
+
+In most cases, the background contribution in each search region will not be known with perfect accuracy and is therefore 
+subject to systematic uncertainties. These uncertainties are modelled by treating the background contribitions, $b_{i}$, as 
+nuisance parameters which are constrained within their uncertainties. The likelihood then takes the form
+
+\begin{equation}
+\mathcal{L}(\mu, \mathbf{b}) = \Prod_{i=1}^{N} P(\mu,b_{i})_{i} \cdot 
+\label{eq:stat-likelihood}
+\end{equation}
+
+where $\mathbf{b}=(b_{1},b_{2}...b_{N})$.
+
+can release sufficient information for recasters to 
+accurately reproduce the results of the true likelihood (with aggregate regions or
+the full signal region) through the use of a simplified likelihood. This is defined
+in Section~\ref{sec:sl-definition} and only requires the covariance matrix
+in addition to the predictions from the analysis. The procedure for determining
+this covariance and defining the simplified likelihood is outlined in Section~\ref{sec:sl-procedure}.
+Section~\ref{sec:red-eff} describes how signal contamination may be accounted for
+through the use of the reduced efficiency method \cite{redeff}. Finally, results
+from the \alphat analysis are shown in Section~\ref{sec:results} including comparisons
+to the results of neglecting the correlations.
+
+
 The results of the (signal region masked) fit with aggregate regions described
 in Section~\ref{sec:aggregate-signal-regions} including predictions
 and uncertainties can be given for recasters to interprete their own
@@ -13,17 +55,6 @@ correlated) control region bins. As will be shown, neglecting these
 correlations can lead to significant bias in limits. However,
 the complexity of the true likelihood means it would be impractical
 and time consuming for recasters for use in interpreting their own models.
-
-This section details how analyses can release sufficient information for recasters to 
-accurately reproduce the results of the true likelihood (with aggregate regions or
-the full signal region) through the use of a simplified likelihood. This is defined
-in Section~\ref{sec:sl-definition} and only requires the covariance matrix
-in addition to the predictions from the analysis. The procedure for determining
-this covariance and defining the simplified likelihood is outlined in Section~\ref{sec:sl-procedure}.
-Section~\ref{sec:red-eff} describes how signal contamination may be accounted for
-through the use of the reduced efficiency method \cite{redeff}. Finally, results
-from the \alphat analysis are shown in Section~\ref{sec:results} including comparisons
-to the results of neglecting the correlations.
 
 
 \subsection{Definition of the simplified likelihood}
