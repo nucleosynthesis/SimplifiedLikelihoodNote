@@ -8,7 +8,7 @@ constructed from a product of counting experiments, representing each search bin
 For a given bin, $i$, the probability to observe $n_{i}$ events is given by
 
 \begin{equation}
-P(\mu)_{i} = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
+ P_{i}(\mu) := P(d_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
 \label{eq:poisson-likelihood}
 \end{equation}
 
@@ -17,77 +17,36 @@ The likelihood for a search containing $N$ search regions is constructed as the 
 of the probabilities across the $N$ search regions, 
 
 \begin{equation}
-\mathcal{L}(\mu) = \Prod_{i=1}^{N} P(\mu)_{i}
+\mathcal{L}(\mu) = \prod_{i=1}^{N} P_{i}(\mu)
 \label{eq:stat-likelihood}
 \end{equation}
 
 In most cases, the background contribution in each search region will not be known with perfect accuracy and is therefore 
-subject to systematic uncertainties. These uncertainties are modelled by treating the background contribitions, $b_{i}$, as 
-nuisance parameters which are constrained within their uncertainties. The likelihood then takes the form
+subject to systematic uncertainties. These uncertainties are modelled by modifying the background contributions as 
+$b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta b_{i}$ are constrained nuisance parameters. The likelihood then takes the form
 
 \begin{equation}
-\mathcal{L}(\mu, \mathbf{b}) = \Prod_{i=1}^{N} P(\mu,b_{i})_{i} \cdot 
-\label{eq:stat-likelihood}
+\mathcal{L}(\mu, \delta \mathbf{b}) = \prod_{i=1}^{N} P_{i}(\mu,\delta b_{i}) \cdot \mathrm{exp} \left[ \sum_{j=1}^{N}\sum_{k=1}^{N} (\delta b_{j}) V_{jk} (\delta b_{k}) \right]
+\label{eq:full-likelihood}
 \end{equation}
 
-where $\mathbf{b}=(b_{1},b_{2}...b_{N})$.
+where $\delta\mathbf{b}=(\delta b_{1},\delta b_{2}...\delta b_{N})$ and $P_{i}(\mu,0)=P_{i}(\mu)$. The matrix element $V_{jk}$ represents the covariance between
+the total expected background in the $j$--th and $k$--th search regions. The constraint 
 
-can release sufficient information for recasters to 
-accurately reproduce the results of the true likelihood (with aggregate regions or
-the full signal region) through the use of a simplified likelihood. This is defined
-in Section~\ref{sec:sl-definition} and only requires the covariance matrix
-in addition to the predictions from the analysis. The procedure for determining
-this covariance and defining the simplified likelihood is outlined in Section~\ref{sec:sl-procedure}.
-Section~\ref{sec:red-eff} describes how signal contamination may be accounted for
-through the use of the reduced efficiency method \cite{redeff}. Finally, results
-from the \alphat analysis are shown in Section~\ref{sec:results} including comparisons
-to the results of neglecting the correlations.
+It should be noted that the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
+by most CMS analyses in that it requires the following assumptions;
 
+\begin{itemize}
+\item{The constraints on the background contributions are Gaussian such that the distribution of the number of background events is symmetric about the expectation, $b_{i}$, 
+and its variance is independent of $\delta \mathbf{b}$. Often, the background contributions are estimated from control regions in data with large sample sizes, which allows for this 
+assumption to be made.}
 
-The results of the (signal region masked) fit with aggregate regions described
-in Section~\ref{sec:aggregate-signal-regions} including predictions
-and uncertainties can be given for recasters to interprete their own
-models. However, many searches for new physics, including the \alphat,
-analyses have complex correlations between bins. Corelations 
-can be introduced through correlated systematic uncertainties as well as 
-through signal bins which are predicted with the same (or systematically
-correlated) control region bins. As will be shown, neglecting these 
-correlations can lead to significant bias in limits. However,
-the complexity of the true likelihood means it would be impractical
-and time consuming for recasters for use in interpreting their own models.
+\item{The linear correlation between the background contribution in each bin is sufficient to model the  pdf of the background expectations such that the constraint 
+can be expressed as a multivariate Gaussian.}
+\end{itemize}
 
 
-\subsection{Definition of the simplified likelihood}
-\label{sec:sl-definition}
-The true likelihood for the full signal region is defined in Equations~\ref{eq:hadronicLikelihood}
-and \label{eq:controlLikelihood} and for the aggregate regions the 
-hadronic section is redefined to Equation~\ref{eq:agg-hadronicLikelihood}. The uncertainty
-of each signal region bin, $i$, as well as its correlation to all other signal region bins, $j$, 
-due to both systematic uncertainties and connection to the control region may be represented
-by elements of the symmetric covariance matrix $\mathbf{V}_{i,j}$. Where diagonal elements encode the 
-variance while off-diagonal elements encode the correlation between bins. The simplified likelihood
-may then be written as in Equation~\ref{eq:simplified-likelihood}.
 
-\begin{equation}
-\mathcal{L}_{\mathrm{simplified}}=\prod_i(\mathrm{Pois}(n_{i} |\, b_{i} + s_{i}\times\mu)
-)\times\exp((\mathbf{b}-\mathbf{b}_{0})^T\mathbf{V}^{-1}(\mathbf{b}-\mathbf{b}_{0}))
-\label{eq:simplified-likelihood}
-\end{equation}
-
-Where signal systematics have been dropped, $\mathbf{b}_{\mathrm{signal}}$ is the vector
-of background predictions in each bin, $\mathbf{b}_{\mathrm{signal},0}$ are their central values 
-and $\mathbf{V}$ is the covariance matrix. The procedure for deriving the predictions and covariance
-is described in \ref{sec:sl-procedure}. The likelihood is then minimized with respect to $\mu$ and $\mathbf{b}$.
-
-The simplified likelihood is an approximation as the nuisances, including the connections
-to the control regions are treated as symmetric and following gaussian pdfs.
-Nuisances which are not well described by the gaussian approximation, for example 
-to asymmetries or significantly different behaviour in the tails, may not be so well modelled.
-Signal systematics are also neglected, although these could be included as a simple
-extension if desired. Despite the loss of the details of the systematic modelling 
-as well as the explicit links to the control regions this simplified likelihood will
-be shown to be a good approximation of the true likelihood for the example of the
-\alphat analysis. 
 
 \subsection{Procedure for deriving inputs}
 
