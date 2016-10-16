@@ -23,17 +23,16 @@ of the probabilities across the $N$ search regions,
 
 In most cases, the background contribution in each search region will not be known with perfect accuracy and is therefore 
 subject to systematic uncertainties. These uncertainties are modelled by modifying the background contributions as 
-$b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta b_{i}$ are constrained nuisance parameters. The likelihood then takes the form
+$b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta\mathbf{b}=(\delta b_{1},\delta b_{2}...\delta b_{N})$ are constrained nuisance parameters. The likelihood then takes the form
 
 \begin{equation}
 \mathcal{L}(\mu, \delta \mathbf{b}) = \prod_{i=1}^{N} P_{i}(\mu,\delta b_{i}) \cdot \mathrm{exp} \left[ \sum_{j=1}^{N}\sum_{k=1}^{N} (\delta b_{j}) V_{jk} (\delta b_{k}) \right]
 \label{eq:full-likelihood}
 \end{equation}
 
-where $\delta\mathbf{b}=(\delta b_{1},\delta b_{2}...\delta b_{N})$ and $P_{i}(\mu,0)=P_{i}(\mu)$. The matrix element $V_{jk}$ represents the covariance between
-the total expected background in the $j$--th and $k$--th search regions. The constraint 
-
-It should be noted that the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
+where $P_{i}(\mu,0)=P_{i}(\mu)$ and $V_{jk}$ represents the covariance between
+the total expected background in the $j$--th and $k$--th search regions. It should be noted that 
+the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
 by most CMS analyses in that it requires the following assumptions;
 
 \begin{itemize}
@@ -44,7 +43,6 @@ assumption to be made.}
 \item{The linear correlation between the background contribution in each bin is sufficient to model the  pdf of the background expectations such that the constraint 
 can be expressed as a multivariate Gaussian.}
 \end{itemize}
-
 
 
 
