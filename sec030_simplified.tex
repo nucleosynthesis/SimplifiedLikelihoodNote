@@ -2,17 +2,64 @@
 \section{Simplified likelihood}
 \label{sec:simplified-likelihood}
 
-This section describes a procedure for using the information provided by the CMS Collaboration to 
-re-interpret searches for new physics through the use of a simplified likelihood. The likelihood is 
-constructed from a product of counting experiments, representing each search region in one or more search regions. 
-For a given region, $i$, the probability to observe $n_{i}$ events is given by
+While several methods for extracting 
+limits are used, the most common approach follows the frequentist paradigm using the procedure 
+described in Refs.~\cite{} and ~\cite{}. 
+The observed data are interpreted using a likelihood defined as,
+
+\begin{equation}
+ \mathcal{L}(\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) = 
+ \mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) \cdot p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})
+\label{eq:generic-likelihood}
+\end{equation}
+
+where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}))$ is a product of the proability 
+over all events or bins in one or more discriminating variables or event categories to observe the data. The parameters 
+$\boldsymbol{\theta}=\left(\theta_{1},\theta_{2}...\right)$ are nuisance parameters, which are used to model the variation of the 
+signal $s(\boldsymbol{\theta})$ and background $b(\boldsymbol{\theta})$ models due to systematic uncertainties. Often, these nuisance 
+parameters are constrained by external measurements, $\hat{\boldsymbol{\theta}}$, which are encoded in the 
+probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
+The parameter $\mu$, typically referred to as a signal strenth, is a common scale factor for the expected signal contribution. 
+A particular BSM model predicting $s(\boldsymbol{\theta})$ is said to be excluded at some confidence level 
+when every value of $\mu\ge1$ is excluded at at least that confidence level.
+
+The profiled likelihood ratio is defined as,
+
+\begin{equation}
+LLR
+\label{eq:generic-likelihood}
+\end{equation}
+
+
+In order to acheive a good senstivity to a wide range of BSM models, searches are often performed 
+by categorising events with different final states or according to some discriminating variable. 
+The precise modelling of the backgrounds can therefore be rather complicated, involving hundreds 
+of nuisance parameters. For this reason, the full likelihood is therefore often 
+too detailed to describe in a CMS publication and includes too many (nuisance) parameters to provide numerically.
+
+The following describes a procedure for using a reduced set of information provided by the CMS Collaboration to 
+re-interpret searches for new physics through the use of a simplified likelihood. 
+In practise, the likelihood defined in Equation~\ref{eq:generic-likelihood} can include regions in which negligible signal is expected under a wide 
+range of BSM models. Typically these are referred to as ``control'' regions in that they allow to constrain the nuisance parameters that  
+cause large variations in the background model.
+In this note, the distinction is made between these regions and ``search'' regions, which instead 
+are expected to include contrubutions from the signal, under some particular set of BSM models. A search region 
+is defined by a set of criteria used to select events. These criteria can include categorisations based on 
+the number of a certain type of object in the event such as jets or 
+charged leptons, and intervals in some discriminating variable such as \ptvecmiss. The data in each search region, $i$, is characterised 
+by a single number, $n_{i}$ which is the observed number of events. The likelihood is therefore constructed from a product of counting 
+experiments, representing each search region in one or more search regions. 
+For a given search region, $i$, the probability to observe $n_{i}$ events is given by
 
 \begin{equation}
  P_{i}(\mu) := P(d_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
 \label{eq:poisson-likelihood}
 \end{equation}
 
-where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions. 
+where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions.
+\footnote{In the case that the search region $R_{i}$ is a bin or interval in a distribution of some observable $x$, for which the signal and background models $s(x)$ 
+and $b(x)$ are continuous functions of $x$ the values of $s_{i}$ and $b_{i}$ are taken as 
+$s_{i}=\int_{R_{i}} s(x)dx$ and $b_{i}=\int_{R_{i}} b(x)dx$.} 
 The likelihood for a search containing $N$ search regions is constructed as the product 
 of the probabilities across the $N$ search regions, 
 
@@ -31,8 +78,19 @@ $b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta\mathbf{b}=(\delta b_{1},\de
 \end{equation}
 
 where $P_{i}(\mu,0)=P_{i}(\mu)$ and $V_{jk}$ represents the covariance between
-the total expected background in the $j$--th and $k$--th search regions. It should be noted that 
-the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
+the total expected background in the $j$--th and $k$--th search regions.
+From Equation~\ref{eq:full-likelihood}, there are three ingredients which are 
+required in order to construct the simplified likelihood. These ingredients are as follows; 
+
+\begin{itemize}
+\item {The number of observed events in each of the search regions, $n_{i}$.}
+\item {The background and signal expectations in each search region, $b_{i}$ and $s_{i}$. The former is often derived using data driven methods and 
+tuned simulation while the latter can be obtained from a number of publically available event generators and tools that simulate the response and resolution of the CMS detector.}
+\item {The covariance between search regions for the backgrounds. These are either derived by simple error propogation of the background systematics to the expected background yields or 
+using pseudo-experiments.}
+\end{itemize}
+ 
+It should be noted that the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
 by most CMS analyses in that it requires the following assumptions;
 
 \begin{itemize}
@@ -43,18 +101,6 @@ assumption to be made.}
 \item{The linear correlation between the background contribution in each region is sufficient to model the  pdf of the background expectations such that the constraint 
 can be expressed as a multivariate Gaussian.}
 \end{itemize}
-
-
-From the above description, it should be clear that there are three ingredients which are 
-required in order to construct the simplified likelihood. These ingredients are as follows; 
-
-\begin{itemize}
-\item {the data count in each search region}
-\item {the background and signal expectations, former from the experiment, latter from Delphes}
-\item {the covariance between search regions for the background. Often derived from control regions.}
-\end{itemize}
-
-
 
 % covariance must be taken as the result of a maximum likelihood fit considering the control regions only. 
 % If the control region is not included then the results fit may be taken. 
