@@ -1,0 +1,35 @@
+%%____________________________________________________________________________||
+\section{Aggregate signal regions}
+\label{sec:aggregate-signal-regions}
+
+This section describes how the categorisation used by searches for new
+physics may be simplified without breaking the correlation model. 
+This may be done with the original likelihood or, approximately,
+with the predictions and covariance matrix.
+
+To define an aggregate region, $I$, based on the likelihood described in equation
+\ref{eq:poisson-likelihood}, the probability to observe $n_{I}$ events is given by
+
+\begin{equation}
+ P_{I}(\mu) = \dfrac{(\mu \cdot \sum_i(s_{i}+b_{i} \cdot \rho_{i}))^{n_{I}} e^{-\sum_i(\mu \cdot s_{i}+b_{i}\cdot\rho_{i})} }{n_{I}!}
+\label{eq:agg-likelihood}
+\end{equation}
+
+where the sum is over all regions being aggregated. The aggregate regions
+can then be used to define predictions and covariance that may be
+used for the aggregate regions.
+
+An alternative derivaration of the predictions and covariance of aggregate region 
+required for the simplified likelihood definition in \ref{eq:full-likelihood} can
+be made using the predictions and covariance of the nominal signal regions.
+These can be merged using \ref{eq:agg-cov}. For the covariance of the aggregate
+region to be accurate relies on the same conditions on the nuisances outlined 
+in Section~\ref{sec:simplified-likelihood}. 
+
+\begin{align}
+b_{I} = \sum_i b_{i} && V_{IJ}=\sum_{ij}V_{ij}
+\label{eq:agg-cov}
+\end{align}
+
+where the sum is over all regions being aggregated. The aggregate predictions
+and covariance can then be used to define the simplified likelihood.
