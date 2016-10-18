@@ -8,7 +8,7 @@ described in Refs.~\cite{} and ~\cite{}.
 The observed data are interpreted using a likelihood defined as,
 
 \begin{equation}
- \mathcal{L}(\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) = 
+ \mathcal{L}(\mu, \boldsymbol{\theta}) = 
  \mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) \cdot p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})
 \label{eq:generic-likelihood}
 \end{equation}
@@ -27,7 +27,7 @@ The profiled likelihood ratio is defined as,
 
 \begin{equation}
 LLR
-\label{eq:generic-likelihood}
+\label{eq:llr}
 \end{equation}
 
 
@@ -52,33 +52,35 @@ experiments, representing each search region in one or more search regions.
 For a given search region, $i$, the probability to observe $n_{i}$ events is given by
 
 \begin{equation}
- P_{i}(\mu) := P(d_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
+ P(n_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
 \label{eq:poisson-likelihood}
 \end{equation}
 
-where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions.
-\footnote{In the case that the search region $R_{i}$ is a bin or interval in a distribution of some observable $x$, for which the signal and background models $s(x)$ 
+where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions.\footnote{In the case 
+that the search region $R_{i}$ is a bin or interval in a distribution of some observable $x$, for which the signal and background models $s(x)$ 
 and $b(x)$ are continuous functions of $x$ the values of $s_{i}$ and $b_{i}$ are taken as 
-$s_{i}=\int_{R_{i}} s(x)dx$ and $b_{i}=\int_{R_{i}} b(x)dx$.} 
-The likelihood for a search containing $N$ search regions is constructed as the product 
-of the probabilities across the $N$ search regions, 
-
-\begin{equation}
-\mathcal{L}(\mu) = \prod_{i=1}^{N} P_{i}(\mu)
-\label{eq:stat-likelihood}
-\end{equation}
+$s_{i}=\int_{R_{i}} s(x)dx$ and $b_{i}=\int_{R_{i}} b(x)dx$.}
 
 In most cases, the background contribution in each search region will not be known with perfect accuracy and is therefore 
 subject to systematic uncertainties. These uncertainties are modelled by modifying the background contributions as 
-$b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta\mathbf{b}=(\delta b_{1},\delta b_{2}...\delta b_{N})$ are constrained nuisance parameters. The likelihood then takes the form
+$b_{i}\rightarrow b_{i}+\theta_{i}$. 
+The probability to simultaneously observe each of the $n_{i}$ events in $N$ search regions is the product of probabilities across the search regions such that,
 
 \begin{equation}
-\mathcal{L}(\mu, \delta \mathbf{b}) = \prod_{i=1}^{N} P_{i}(\mu,\delta b_{i}) \cdot \mathrm{exp} \left[ \sum_{j=1}^{N}\sum_{k=1}^{N} (\delta b_{j}) V_{jk} (\delta b_{k}) \right]
+\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}) = \prod_{i=1}^{N} P(n_{i}|\mu \cdot s_{i}+b_{i}+\theta_{i})
+\label{eq:poisson-prob}
+\end{equation}
+
+The probability density function for the nuisance parameters is modelled as a multivariate Gaussian with the mean vector identified with $\tilde{\boldsymbol{\theta}}=0$. The 
+likelihood of Equation.~\ref{eq:generic-likelihood} can then be expressed as,
+
+\begin{equation}
+\mathcal{L}(\mu, \boldsymbol{\theta}) =  \prod_{i=1}^{N} \dfrac{(\mu \cdot s_{i}+b_{i}+\theta_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i}+\theta_{i})} }{n_{i}!} \cdot \mathrm{exp} 
+\left(-\dfrac{1}{2} \boldsymbol{\theta}^{T}\mathrm{\mathbf{V}}^{-1}\boldsymbol{\theta} \right)
 \label{eq:full-likelihood}
 \end{equation}
 
-where $P_{i}(\mu,0)=P_{i}(\mu)$ and $V_{jk}$ represents the covariance between
-the total expected background in the $j$--th and $k$--th search regions.
+where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected background contributions across the search regions.
 From Equation~\ref{eq:full-likelihood}, there are three ingredients which are 
 required in order to construct the simplified likelihood. These ingredients are as follows; 
 
