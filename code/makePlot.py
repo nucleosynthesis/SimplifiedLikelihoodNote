@@ -5,7 +5,9 @@ import ROOT as r
 r.gStyle.SetOptStat(0)
 
 fi = r.TFile.Open("mlfit.root")
+fiSig = r.TFile.Open("mlfit_Signal1.root")
 di = fi 
+diSig = fiSig
 
 import plot_config 
 
@@ -132,7 +134,7 @@ def makePlot(cat,typ,minimum,maximum,name,label):
   totalsignal = 0
   for sig_s_i,sig in enumerate(x.signals[sig_t][0]):
    print "Getting signal %s"%x.directorys+"/"+sig
-   tmp = di.Get(x.directorys+"/"+sig)
+   tmp = diSig.Get(x.directorys+"/"+sig)
    if sig_s_i==0: totalsignal = tmp.Clone()
    else: totalsignal.Add(tmp)
 
