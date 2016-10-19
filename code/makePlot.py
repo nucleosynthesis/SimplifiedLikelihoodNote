@@ -145,6 +145,8 @@ def makePlot(cat,typ,minimum,maximum,name,label):
        totalsignal.Scale(x.signals[sig_t][3])
 
   x.signals[sig_t][2]=totalsignal.Clone()
+  if allsignal == 0: allsignal = totalsignal.Clone()
+  else : allsignal.Add(totalsignal)
   legentries.append(x.signals[sig_t][2].Clone())
   leg.AddEntry(legentries[-1],sig_t,"L")
 
@@ -160,14 +162,17 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  data.SetLineWidth(2)
  data.SetMarkerSize(1.2)
  data.SetMarkerStyle(20)
- ratio.SetMarkerColor(r.kBlack)
- ratio.SetLineColor(1)
- ratio.SetLineWidth(2)
- ratio.SetMarkerSize(1.2)
+ ratio = allsignal.Clone()
+ ratio.Divide(totalbackground)
+ #ratio.SetMarkers()
+ ratio.SetLineColor(r.kRed+1)
+ ratio.SetLineWidth(3)
+ ratio.SetMarkerSize(0)
  ratio.SetMarkerStyle(20)
+ 
  totalbackground.SetFillStyle(3005)
  totalbackground.SetFillColor(1)
- totalbackground.Draw("sameE2")
+ #totalbackground.Draw("sameE2")
  data.Draw("samePE")
 
  leg.Draw()
@@ -198,12 +203,13 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  ratioErr = totalbackground.Clone(); ratioErr.SetName("raterr_elsey");
  for b in range(ratioErr.GetNbinsX()):
  	bw = ratioErr.GetBinContent(b+1);
- 	ratioErr.SetBinContent(b+1,1);
+ 	ratioErr.SetBinContent(b+1,0);
 	print ratioErr.GetBinError(b+1)
- 	ratioErr.SetBinError(b+1,ratioErr.GetBinError(b+1)/bw);
+ 	ratioErr.SetBinError(b+1,0);
+
  
  	
- ratioErr.SetFillStyle(3005);
+ ratioErr.SetFillStyle(0);
  ratioErr.SetFillColor(1);
 
  ratioErr.GetYaxis().SetNdivisions(5)
@@ -211,22 +217,23 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  ratioErr.GetYaxis().SetTitleSize(0.18)
  ratioErr.GetXaxis().SetTitleSize(0.14)
  ratioErr.GetXaxis().SetLabelSize(0.24)
+ ratioErr.GetXaxis().SetLabelOffset(0.03)
  ratioErr.GetXaxis().SetTitle("")
  ratioErr.SetLineWidth(0)
- ratioErr.SetMaximum(3.9)
- ratioErr.SetMinimum(0.02)
+ ratioErr.SetMaximum(1.21)
+ ratioErr.SetMinimum(0.01)
 
- ratioErr.GetYaxis().SetTitle("Data/Bkg.")
+ ratioErr.GetYaxis().SetTitle("Sig./Bkg.")
  ratioErr.GetYaxis().SetTitleOffset(0.25)
  ratioErr.GetXaxis().SetTitleOffset(1.4)
  ratioErr.Draw()
- ratioErr.Draw("sameE2")
+ #ratioErr.Draw("sameE2")
  line = r.TLine(ratioErr.GetXaxis().GetXmin(),1,ratioErr.GetXaxis().GetXmax(),1)
  line.SetLineColor(1)
  line.SetLineWidth(2)
  line.SetLineStyle(2)
- line.Draw()
- ratio.Draw("samePE")
+ #line.Draw()
+ ratio.Draw("samehist")
 
  pad2.SetGridy()
  pad2.SetTicky()
