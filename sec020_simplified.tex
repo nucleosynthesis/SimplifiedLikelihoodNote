@@ -96,29 +96,43 @@ where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected ba
 
 A toy example of a search for BSM physics is represented in Figure~\ref{fig:toy-example}. The search is performed using 8 mutually exclusive search regions 
 which vary in the expected contributions from backgrounds and a potential BSM physics signal. Figure~\ref{fig:toy-example} (a) indicates the 
-number of observed events in each of the search regions as well as the expected contribution from two different sources of background. 
-The latter is often derived using data driven methods or tuned simulation. The ratio of the data to the total background esimtate in each region is 
-shown in the lower panel of Figure~\ref{fig:toy-example} (b). Finally, the expected contribution from a BSM physics signal is shown. In this example, the signal is provided, however, the 
+number of observed events in each of the search regions as well as the expected contribution from two different sources of background, stacked on top of one another. 
+The background estimates include systematic uncertainties related to theoretical uncertainties, when the backgrounds are derived using 
+simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
+due to limited sample sizes of events in control regions used to estimate the backgrounds. In this example, two systematics are included, one affecting the $\mathrm{Z}(\rightarrow \nu\nu)+\mathrm{jets}$ background only
+and one affecting the $\mathrm{W}(\rightarrow l\nu)+\mathrm{jets}$ background only. These two systematics are modelled as two nuisance parameters in the full likelihood of Equation~\ref{eq:generic-likelihood}. 
+Figure~\ref{fig:toy-example} (b) shows the variation of the expected contribution due to the systematic uncertainties. The dot and dot--dashed histograms show the expected 
+contributions when each of the two nuisance parameters are varied positively and negatively, respectively.
+Finally, the expected contribution from a BSM physics signal is shown. 
+The ratio of the expected signal to the total background esimtate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (b). 
+In this example, the signal is provided, however, the 
 signal can be exchanged for some other BSM physics process using a number of publically available event generators and tools that simulate the response 
 and resolution of the CMS detector. The details of producing signal estimates is beyond the scope of this note. 
 
 \begin{figure}[hbt]
   \begin{center} 
    \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/plot_dummy.pdf}}
-   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/htsearch_covariance.pdf}}
-   \caption{(a) Number of data, expected background and expected signal in the 8 search regions. The lower panel shows the ratio of the data to the total expected background. 
-The shaded bands represent the uncertainty in the background contributions. (b) Covariance between the number of expected background events in each of the 8 search regions.}
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/systematics.pdf}}
+   \caption{(a) Number of data, expected background and expected signal in the 8 search regions. The lower panel shows the ratio of the expected signal to the total expected background. 
+(b) Uncertainties in the two background contributions. The dotted and dot--dashed lines show the expected number of background events in each process when shifting the systematic uncertainty to positive values and negative values respectively.}
    \label{fig:toy-example} 
   \end{center}
 \end{figure}
 
-The background estimates include systematic uncertainties related to theoretical uncertainties, when the backgrounds are derived using 
-simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
-due to limited sample sizes of events in control regions used to estimate the backgrounds. Figure~\ref{} (b) gives the covariance between the total number of 
-background events expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
-backgrounds are not independant in each bin. 
+Figure~\ref{fig:covariance} gives the covariance between the total rate of 
+background contributions expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
+backgrounds are not independant in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
+across the regions. 
 
-The information provided in Figure~\ref{fig:toy-example} is all that is necessary to reconstruct the likelihood in Equation~\ref{eq:full-likelihood} and 
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/htsearch_covariance.pdf}
+   \caption{Covariance between the total rate of background  contributions expected  in each of the  search regions.}
+   \label{fig:covariance} 
+  \end{center}
+\end{figure}
+
+The information provided above is all that is necessary to reconstruct the likelihood in Equation~\ref{eq:full-likelihood} and 
 can be summarised as follows; 
 
 \begin{itemize}
@@ -141,8 +155,26 @@ where $\hat{\mu}$ and $\hat{\hat{\boldsymbol{\theta}}}$ are the values of the pa
 which maximise the likelihood. The values $\hat{\boldsymbol{\theta}}_{\mu}$ are the values of $\boldsymbol{\theta}$ which maximise the 
 likelihood for a fixed value of $\mu$. 
 
-The profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
+A common estimate of the uncertainty in $\mu$ is to determine the interval in $\mu$ such that $q(\mu)\leq1$ and define the uncertainty as the difference between 
+the end points of that interval and $\hat{\mu}$. Furthermore, the profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
 in BSM searches performed by the CMS collaboration, a full description of which  can be found in Refs.~\cite{}.
+
+Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
+is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
+background yields by setting $V_{ij}=0$ for $i\neq j$. The results using the full likelihood of Equation~\ref{eq:generic-likelihood} are also shown. The simplified 
+likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
+addition, the width of the curve ignoring the correlation is smaller than the other curves meaning the uncertainty estimate on $\mu$ will be smaller in that case.  
+
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/r.pdf}
+   \caption{The value of $q(\mu)$ defined using the simplified likelihood using the full covariance matrix (open blue points), assuming no correlations between the 
+   background yields (open magenta crosses) and defined using the full likelihood (solid black line).}
+   \label{fig:likelihoodscan} 
+  \end{center}
+\end{figure}
+
 
 % covariance must be taken as the result of a maximum likelihood fit considering the control regions only. 
 % If the control region is not included then the results fit may be taken. 
