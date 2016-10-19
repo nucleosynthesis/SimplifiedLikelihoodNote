@@ -63,7 +63,7 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  #if typ==1 : getDataMJ(totalbackground,ratio)
  data = di.Get(x.directory+"/%s/data"%cat)
 
- for n in range(0,data.GetN()-1): 
+ for n in range(0,data.GetN()): 
     XX=data.GetX()[n]
     y=data.GetY()[n]
     yh=data.GetErrorYhigh(n)
@@ -86,7 +86,7 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  totalbkg = 0; totalc=0
 
  leg = r.TLegend(0.5,0.46,0.86,0.87); leg.SetFillColor(0); leg.SetTextFont(42)
-
+ leg.SetFillStyle(0)
  leg.SetBorderSize(0)
  leg.AddEntry(data,"Data","PEL")
 
@@ -182,7 +182,7 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  lat2.SetTextFont(42)
  lat2.SetTextSize(0.066)
  #if isPrelim:  lat2.DrawLatex(0.14,0.8,"#bf{CMS} #it{Preliminary}") 
- lat2.DrawLatex(0.14,0.8,"Toy experiment") 
+ lat2.DrawLatex(0.14,0.8,"Toy search") 
  if cat : lat.DrawLatex(0.14,0.74,label) 
  #lat.DrawLatex(0.67,0.92,"2.3 fb^{-1} (13 TeV)") 
  pad1.RedrawAxis()
@@ -212,6 +212,7 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  ratioErr.GetXaxis().SetTitleSize(0.14)
  ratioErr.GetXaxis().SetLabelSize(0.24)
  ratioErr.GetXaxis().SetTitle("")
+ ratioErr.SetLineWidth(0)
  ratioErr.SetMaximum(3.9)
  ratioErr.SetMinimum(0.02)
 
@@ -242,4 +243,4 @@ def makePlot(cat,typ,minimum,maximum,name,label):
 #makePlot("ggH_hinv_13TeV_datacard_SR_monoJ",1,0.002,100000,"plot_monoj","Monojet-tagged")
 
 #makePlot("VH_had_hinv_13TeV_datacard_SR_monoV",0,0.00005,10000,"plot_monov","V(jj)")
-makePlot("htsearch",1,0.011,100000,"plot_dummy","")
+makePlot("htsearch",1,0.11,100000,"plot_dummy","")
