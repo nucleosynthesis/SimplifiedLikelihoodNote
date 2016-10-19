@@ -61,7 +61,7 @@ $b_{i}\rightarrow b_{i}+\theta_{i}$.
 The probability to simultaneously observe each of the $n_{i}$ events in $N$ search regions is the product of probabilities across the search regions such that,
 
 \begin{equation}
-\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}) = \prod_{i=1}^{N} P(n_{i}|\mu \cdot s_{i}+b_{i}+\theta_{i})
+\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) = \prod_{i=1}^{N} P(n_{i}|\mu \cdot s_{i}+b_{i}+\theta_{i})
 \label{eq:poisson-prob}
 \end{equation}
 
@@ -93,6 +93,7 @@ where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected ba
 
 
 \subsection{Example of constructing the simplified likelihood}
+\label{sec:sl-toy}
 
 A toy example of a search for BSM physics is represented in Figure~\ref{fig:toy-example}. The search is performed using 8 mutually exclusive search regions 
 which vary in the expected contributions from backgrounds and a potential BSM physics signal. Figure~\ref{fig:toy-example} (a) indicates the 
