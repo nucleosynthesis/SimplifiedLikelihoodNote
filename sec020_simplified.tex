@@ -8,7 +8,7 @@ described in Refs.~\cite{} and ~\cite{}.
 The observed data are interpreted using a likelihood defined as,
 
 \begin{equation}
- \mathcal{L}(\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) = 
+ \mathcal{L}(\mu, \boldsymbol{\theta}) = 
  \mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta})) \cdot p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})
 \label{eq:generic-likelihood}
 \end{equation}
@@ -17,28 +17,22 @@ where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol
 over all events or bins in one or more discriminating variables or event categories to observe the data. The parameters 
 $\boldsymbol{\theta}=\left(\theta_{1},\theta_{2}...\right)$ are nuisance parameters, which are used to model the variation of the 
 signal $s(\boldsymbol{\theta})$ and background $b(\boldsymbol{\theta})$ models due to systematic uncertainties. Often, these nuisance 
-parameters are constrained by external measurements, $\hat{\boldsymbol{\theta}}$, which are encoded in the 
+parameters are constrained by external measurements, $\tilde{\boldsymbol{\theta}}$, which are encoded in the 
 probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
 The parameter $\mu$, typically referred to as a signal strenth, is a common scale factor for the expected signal contribution. 
 A particular BSM model predicting $s(\boldsymbol{\theta})$ is said to be excluded at some confidence level 
 when every value of $\mu\ge1$ is excluded at at least that confidence level.
 
-The profiled likelihood ratio is defined as,
-
-\begin{equation}
-LLR
-\label{eq:generic-likelihood}
-\end{equation}
-
-
 In order to acheive a good senstivity to a wide range of BSM models, searches are often performed 
 by categorising events with different final states or according to some discriminating variable. 
-The precise modelling of the backgrounds can therefore be rather complicated, involving hundreds 
-of nuisance parameters. For this reason, the full likelihood is therefore often 
-too detailed to describe in a CMS publication and includes too many (nuisance) parameters to provide numerically.
-
+The precise modelling of the backgrounds can therefore be rather complicated, involving many 
+nuisance parameters. For this reason, the full likelihood is therefore often 
+too detailed to describe in a CMS publication and includes too many (nuisance) parameters to provide numerically. 
 The following describes a procedure for using a reduced set of information provided by the CMS Collaboration to 
 re-interpret searches for new physics through the use of a simplified likelihood. 
+
+
+\subsection{Defining the simplified likelihood}
 In practise, the likelihood defined in Equation~\ref{eq:generic-likelihood} can include regions in which negligible signal is expected under a wide 
 range of BSM models. Typically these are referred to as ``control'' regions in that they allow to constrain the nuisance parameters that  
 cause large variations in the background model.
@@ -52,55 +46,103 @@ experiments, representing each search region in one or more search regions.
 For a given search region, $i$, the probability to observe $n_{i}$ events is given by
 
 \begin{equation}
- P_{i}(\mu) := P(d_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
+ P(n_{i}|\mu \cdot s_{i}+b_{i}) = \dfrac{(\mu \cdot s_{i}+b_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i})} }{n_{i}!}
 \label{eq:poisson-likelihood}
 \end{equation}
 
-where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions.
-\footnote{In the case that the search region $R_{i}$ is a bin or interval in a distribution of some observable $x$, for which the signal and background models $s(x)$ 
+where $s_{i}$ and $b_{i}$ are the total expected signal and background contributions.\footnote{In the case 
+that the search region $R_{i}$ is a bin or interval in a distribution of some observable $x$, for which the signal and background models $s(x)$ 
 and $b(x)$ are continuous functions of $x$ the values of $s_{i}$ and $b_{i}$ are taken as 
-$s_{i}=\int_{R_{i}} s(x)dx$ and $b_{i}=\int_{R_{i}} b(x)dx$.} 
-The likelihood for a search containing $N$ search regions is constructed as the product 
-of the probabilities across the $N$ search regions, 
-
-\begin{equation}
-\mathcal{L}(\mu) = \prod_{i=1}^{N} P_{i}(\mu)
-\label{eq:stat-likelihood}
-\end{equation}
+$s_{i}=\int_{R_{i}} s(x)dx$ and $b_{i}=\int_{R_{i}} b(x)dx$.}
 
 In most cases, the background contribution in each search region will not be known with perfect accuracy and is therefore 
 subject to systematic uncertainties. These uncertainties are modelled by modifying the background contributions as 
-$b_{i}\rightarrow b_{i}+\delta b_{i}$, where $\delta\mathbf{b}=(\delta b_{1},\delta b_{2}...\delta b_{N})$ are constrained nuisance parameters. The likelihood then takes the form
+$b_{i}\rightarrow b_{i}+\theta_{i}$. 
+The probability to simultaneously observe each of the $n_{i}$ events in $N$ search regions is the product of probabilities across the search regions such that,
 
 \begin{equation}
-\mathcal{L}(\mu, \delta \mathbf{b}) = \prod_{i=1}^{N} P_{i}(\mu,\delta b_{i}) \cdot \mathrm{exp} \left[ \sum_{j=1}^{N}\sum_{k=1}^{N} (\delta b_{j}) V_{jk} (\delta b_{k}) \right]
-\label{eq:full-likelihood}
+\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}) = \prod_{i=1}^{N} P(n_{i}|\mu \cdot s_{i}+b_{i}+\theta_{i})
+\label{eq:poisson-prob}
 \end{equation}
 
-where $P_{i}(\mu,0)=P_{i}(\mu)$ and $V_{jk}$ represents the covariance between
-the total expected background in the $j$--th and $k$--th search regions.
-From Equation~\ref{eq:full-likelihood}, there are three ingredients which are 
-required in order to construct the simplified likelihood. These ingredients are as follows; 
-
-\begin{itemize}
-\item {The number of observed events in each of the search regions, $n_{i}$.}
-\item {The background and signal expectations in each search region, $b_{i}$ and $s_{i}$. The former is often derived using data driven methods and 
-tuned simulation while the latter can be obtained from a number of publically available event generators and tools that simulate the response and resolution of the CMS detector.}
-\item {The covariance between search regions for the backgrounds. These are either derived by simple error propogation of the background systematics to the expected background yields or 
-using pseudo-experiments.}
-\end{itemize}
- 
-It should be noted that the simplified likelihood presented in Equation~\ref{eq:full-likelihood} is an approximation to the full likelihood used 
-by most CMS analyses in that it requires the following assumptions;
+Some simplifying assumptions must be made in order to avoid the necessity to publish the full probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
 
 \begin{itemize}
 \item{The constraints on the background contributions are Gaussian such that the distribution of the number of background events is symmetric about the expectation, $b_{i}$, 
-and its variance is independent of $\delta \mathbf{b}$. Often, the background contributions are estimated from control regions in data with large sample sizes, which allows for this 
+and its variance is independent of $\boldsymbol{\theta}$. Often, the background contributions are estimated from control regions in data with large sample sizes, which allows for this 
 assumption to be made.}
 
-\item{The linear correlation between the background contribution in each region is sufficient to model the  pdf of the background expectations such that the constraint 
-can be expressed as a multivariate Gaussian.}
+\item{The covariance, and therefore only the linear correlation, between the background contribution in each region is enough to approximate $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ 
+at least for values of $\boldsymbol{\theta}$ which are close to $\tilde{\boldsymbol{\theta}}$.}
+
+\item{The number of events $n_{i}$ are statistically independant from one another and the background contributions $b_{i}$ and covariance matrix $\mathrm{\mathbf{V}}$ are 
+statistically independant of the data from all search regions. This is true when there are no events which are included in more than one search region and when the methods used to 
+determine $b_{i}$ and $\mathrm{\mathbf{V}}$ do not use the data from the search regions.}
 \end{itemize}
+
+Under these assumptions, $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ can be modelled as a multivariate Gaussian with the mean vector identified with external measurements of 
+$\tilde{\boldsymbol{\theta}}=0$. The likelihood of Equation.~\ref{eq:generic-likelihood} can then be expressed as,
+
+\begin{equation}
+\mathcal{L}(\mu, \boldsymbol{\theta}) =  \prod_{i=1}^{N} \dfrac{(\mu \cdot s_{i}+b_{i}+\theta_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i}+\theta_{i})} }{n_{i}!} \cdot  
+\mathrm{exp}\left(-\dfrac{1}{2} \boldsymbol{\theta}^{T}\mathrm{\mathbf{V}}^{-1}\boldsymbol{\theta} \right)
+\label{eq:full-likelihood}
+\end{equation}
+
+where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected background contributions across the search regions.
+
+
+\subsection{Example of constructing the simplified likelihood}
+
+A toy example of a search for BSM physics is represented in Figure~\ref{fig:toy-example}. The search is performed using 8 mutually exclusive search regions 
+which vary in the expected contributions from backgrounds and a potential BSM physics signal. Figure~\ref{fig:toy-example} (a) indicates the 
+number of observed events in each of the search regions as well as the expected contribution from two different sources of background. 
+The latter is often derived using data driven methods or tuned simulation. The ratio of the data to the total background esimtate in each region is 
+shown in the lower panel of Figure~\ref{fig:toy-example} (b). Finally, the expected contribution from a BSM physics signal is shown. In this example, the signal is provided, however, the 
+signal can be exchanged for some other BSM physics process using a number of publically available event generators and tools that simulate the response 
+and resolution of the CMS detector. The details of producing signal estimates is beyond the scope of this note. 
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/plot_dummy.pdf}}
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/htsearch_covariance.pdf}}
+   \caption{(a) Number of data, expected background and expected signal in the 8 search regions. The lower panel shows the ratio of the data to the total expected background. 
+The shaded bands represent the uncertainty in the background contributions. (b) Covariance between the number of expected background events in each of the 8 search regions.}
+   \label{fig:toy-example} 
+  \end{center}
+\end{figure}
+
+The background estimates include systematic uncertainties related to theoretical uncertainties, when the backgrounds are derived using 
+simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
+due to limited sample sizes of events in control regions used to estimate the backgrounds. Figure~\ref{} (b) gives the covariance between the total number of 
+background events expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
+backgrounds are not independant in each bin. 
+
+The information provided in Figure~\ref{fig:toy-example} is all that is necessary to reconstruct the likelihood in Equation~\ref{eq:full-likelihood} and 
+can be summarised as follows; 
+
+\begin{itemize}
+\item {The number of observed events in each search region, $n_{i}$.}
+\item {The background and signal expectations in each search region, $b_{i}$ and $s_{i}$.}
+\item {The covariance between the number of background events in search region, $\mathrm{\mathbf{V}}=\left\{V_{ij}\right\}_{i,j=1}^{N}$. }
+\end{itemize}
+
+It is important to note that the estimates of both the background contributions and the 
+covariance matrix do not use the data in the 8 search regions, making them statistically independant from the data. The data in the search regions 
+can be used to further constrain the background (meaning to reduce the uncertainties on the nuisance parameters $\boldsymbol{\theta}$) through the use 
+of the profiled likelihood ratio, which is defined as 
+
+\begin{equation}
+q(\mu) = -2\ln \dfrac {\mathcal{L}(\mu,\hat{\boldsymbol{\theta}}_{\mu})} {\mathcal{L}(\hat{\mu},\hat{\hat{\boldsymbol{\theta}}})}
+\label{eq:llr}
+\end{equation}
+
+where $\hat{\mu}$ and $\hat{\hat{\boldsymbol{\theta}}}$ are the values of the parameters $\mu$ and $\boldsymbol{\theta}$ respectively, 
+which maximise the likelihood. The values $\hat{\boldsymbol{\theta}}_{\mu}$ are the values of $\boldsymbol{\theta}$ which maximise the 
+likelihood for a fixed value of $\mu$. 
+
+The profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
+in BSM searches performed by the CMS collaboration, a full description of which  can be found in Refs.~\cite{}.
 
 % covariance must be taken as the result of a maximum likelihood fit considering the control regions only. 
 % If the control region is not included then the results fit may be taken. 

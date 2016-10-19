@@ -25,3 +25,10 @@ rate        		-1            -1        -1
 zj_sys shape		1	      -         - 
 wj_sys shape		-	      1         -
 muonEff lnN		1.02	      1.01	0 
+
+
+zjetsScale	rateParam	htsearch zjets	1 [0.,20.]
+wjetsScale	rateParam	htsearch wjets	(@0) zjetsScale
+signalScale	rateParam	htsearch signal	(@0) zjetsScale
+
+
