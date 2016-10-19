@@ -3,7 +3,7 @@
 // The signal is assumed to be from the "mlfit.root" output (prefit) of the combine MaxLikelihoodFit, but some simple re-writes could accept any histogram 
 
 // ranges for LH scans
-double RMIN = -1;
+double RMIN = -0.5;
 double RMAX = 2.0;
 
 const bool isTH1Input=true;
@@ -145,7 +145,7 @@ TH1F getData(RooWorkspace *w, TH1F *sigh){
     return *t; 
 }
 
-double simplifiedLikelihood(std::string modelName="signal",std::string outname="ht400Output",std::string ifilename="ussrInputHt400NoSignalMc/covarianceInput.root",std::string sfilename="ussrInputHt400NoSignalMc/signalHists.root", bool runExpected = false,  bool ignoreCorrelation = false,std::string whichFit = "prefit"){
+double simplifiedLikelihood(std::string modelName="signal",std::string outname="simplified-LH",std::string ifilename="mlfit.root",std::string sfilename="mlfit_Signal1.root", bool runExpected = false,  bool ignoreCorrelation = false,std::string whichFit = "prefit"){
 
     gROOT->SetBatch(1);
     gStyle->SetOptStat(0);
@@ -179,7 +179,7 @@ double simplifiedLikelihood(std::string modelName="signal",std::string outname="
      // TH1F *signal = (TH1F*)sfile->Get("shapes_prefit/total_signal");		// TH1 for signal  
     TH1F *bkg      = (TH1F*)ifile->Get(Form("shapes_%s/htsearch/total_background",whichFit.c_str()));
     TH1F *bkgcombfit    = (TH1F*)ifile->Get(Form("shapes_%s/htsearch/total_background",whichFit.c_str()));
-    TGraph * dataG = (TGraph*)ifile->Get(Form("shapes_%s/htsearch/data",whichFit.c_str()));
+    TGraph *dataG = (TGraph*)ifile->Get(Form("shapes_%s/htsearch/data",whichFit.c_str()));
     TH2F *covar  = (TH2F*)ifile->Get(Form("shapes_%s/htsearch/total_covar",whichFit.c_str()));
 
     signal->Print();
