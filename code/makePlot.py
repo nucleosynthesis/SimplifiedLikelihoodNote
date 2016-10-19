@@ -63,19 +63,18 @@ def makePlot(cat,typ,minimum,maximum,name,label):
  #if typ==1 : getDataMJ(totalbackground,ratio)
  data = di.Get(x.directory+"/%s/data"%cat)
 
- for n in range(1,data.GetN()): 
+ for n in range(0,data.GetN()-1): 
     XX=data.GetX()[n]
     y=data.GetY()[n]
     yh=data.GetErrorYhigh(n)
     yl=data.GetErrorYlow(n)
-    bc = totalbackground.GetBinContent(n)
-    bw = totalbackground.GetBinWidth(n)
-    print XX,y
+    bc = totalbackground.GetBinContent(n+1)
+    bw = totalbackground.GetBinWidth(n+1)
     y=y/bc
     yh=yh/bc
     yl=yl/bc
-    ratio.SetPoint(n-1,XX,y)
-    ratio.SetPointError(n-1,bw/2,bw/2,yl,yh)
+    ratio.SetPoint(n,XX,y)
+    ratio.SetPointError(n,bw/2,bw/2,yl,yh)
 
 
  data.SetTitle("data")
