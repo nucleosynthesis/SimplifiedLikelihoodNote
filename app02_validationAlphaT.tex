@@ -48,7 +48,10 @@ predictions are inclusive in \mht but binned according to Table~\ref{tab:binning
 The $\mathcal{O}800$ bins provide generic sensitivity but are not optimal
 for simple reinterpretation. A simplification can be made that maintains
 sensitivity to a large class of models through the use of aggregate regions.
-The final categories are shown in Table~\ref{tab:agg-binnning}. In addition
+The final categories are shown in Table~\ref{tab:agg-binnning}.
+These are defined to be disjoint, contigous and to cover the full
+signal region and so in combination to reflect sensitivity from 
+full signal region phase space. In addition
 for each aggregate category eight exclusive \mht bins with
 lower bounds $100,200,300,400,500,600,700,\ge800GeV$ are defined.
 
@@ -79,30 +82,27 @@ dark matter models and compressed spectra while the high \nj topology targets
 uncompressed gluino and squark models.
 The b-jet categories are combined as $\nb=0,1$ \nb models and $\nb\geq2$ targeted at
 light and heavy flavour new physics respectively. Finally, the \scalht dimension is 
-entirely merged as the \mht dimension is strongly correlated with \scalht and
-can be used to provide similar sensitivity. The use of the
+entirely merged as the \mht dimension generally provides better sensitivity
+for new physics models. The use of the
 aggregate regions ensures that the components of the background are still
 corrected based on the nominal, finely binned regions with relevant systematics.
 
 \subsection{Results using aggregate regions for the \alphat analysis}
 
-When using the full likelihood presenting the final fit results is
-a signifcant issue. The large number of bins makes understanding any possible trends,
-excesses or deficits in the fit result across the signal region difficult. 
-The aggregate regions can be used to rapidly find global features in the fit result as
-the full picture can be summarised, in the case of the \alphat analysis, 
-in eight \mht distributions as shown in Fig.~\ref{fig:aggFitResult}. These
-show the predictions using the fit to the control regions only compared to 
-the data observations. Post signal region fit results are shown in Appendix~\ref{app:}.
+The aggregate regions provide an easily comprehensible
+overview of the signal region when compared to the results
+of the nominal signal bins. Figure~\ref{fig:aggFitResult} shows
+the post fit predictions for the aggregate regions compared 
+to the observed data.
 
-To evaluate the effect on the sensitivity the expected and observed 95\% upper limit
+To evaluate the effect on the reach of the \alphat analysis the expected and observed 95\% upper limit
 on the signal strength, defined as in \cite{limit-stuff}, for the full signal region 
 is compared that using the aggregate regions. The limits are shown side by side
 in Fig~\ref{fig:limit-planes} for three models, T2tt T2bb and T1bbbb. Where the mass
 splittings are small the expected limits typically reduce by $\mathcal{O} 100\GeV$ 
 compared to the full signal region for all models  
 
-The aggregate fit result considering only the control regions, 
+The predictions from the aggregate regions
 can be used to provide predictions and uncertainties
 to allow recasters to interpret their own models. In the case of the \alphat search
 this is significantly easier than recasting the full signal region. To make best use of this information, 
@@ -110,18 +110,9 @@ as will be discussed in Section~\ref{sec:simplified-likelihood},
 the covariance matrix encoding the level of correlation between bins must also be utilised.
 \clearpage
 \begin{figure}[!tbhp]
-    \caption{ Signal region predictions and data observations for the aggregate regions. 
-    The predictions are made using a fit to the control region only. \label{fig:aggFitResult} }
-  \begin{center}
-    \subfigure[Monojet-like, $\nb = 0$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_eq0b_le2j_200_Inf_crfit_aux.pdf} } ~~
-    \subfigure[Monojet-like, $\nb \geq 1$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge1b_le2j_200_Inf_crfit_aux.pdf} } \\
-    \subfigure[Asymmetric high \nj, $\nb \leq 1$]   { \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_le1b_ge3a_200_Inf_crfit_aux.pdf} } ~~
-    \subfigure[Asymmetric high \nj, $\nb \geq 2$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge2b_ge3a_200_Inf_crfit_aux.pdf} } \\
-    \subfigure[Mid \nj, $\nb \leq 1$]   { \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_le1b_ge3j_200_Inf_crfit_aux.pdf} } ~~
-    \subfigure[Mid \nj, $\nb \geq 2$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge2b_ge3j_200_Inf_crfit_aux.pdf} } \\
-    \subfigure[High \nj, $\nb \leq 1$]   { \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_le1b_ge5j_200_Inf_crfit_aux.pdf} } ~~
-    \subfigure[High \nj, $\nb \geq 2$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge2b_ge5j_200_Inf_crfit_aux.pdf} } \\
-  \end{center}
+    \caption{Post fit signal region predictions and data observations for the aggregate regions. 
+    \label{fig:aggFitResult} }
+    \includegraphics[width=2.9\cmsFigWidth]{figures/alphaT/agg_fitResults/PostfitB_stackOverlay.pdf}
 \end{figure}
 
 
