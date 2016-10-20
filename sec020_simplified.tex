@@ -4,7 +4,7 @@
 
 While several methods for extracting 
 limits are used, the most common approach follows the frequentist paradigm using the procedure 
-described in Refs.~\cite{} and ~\cite{}. 
+described in Refs.~\cite{Chatrchyan:2012tx} and ~\cite{CMS-NOTE-2011-005}. 
 The observed data are interpreted using a likelihood defined as,
 
 \begin{equation}
@@ -40,7 +40,7 @@ In this note, the distinction is made between these regions and ``search'' regio
 are expected to include contrubutions from the signal, under some particular set of BSM models. A search region 
 is defined by a set of criteria used to select events. These criteria can include categorisations based on 
 the number of a certain type of object in the event such as jets or 
-charged leptons, and intervals in some discriminating variable such as \ptvecmiss. The data in each search region, $i$, is characterised 
+charged leptons, and intervals in some discriminating variable such as the missing transverse momentum in the event. The data in each search region, $i$, is characterised 
 by a single number, $n_{i}$ which is the observed number of events. The likelihood is therefore constructed from a product of counting 
 experiments, representing each search region in one or more search regions. 
 For a given search region, $i$, the probability to observe $n_{i}$ events is given by
@@ -96,8 +96,9 @@ where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected ba
 \label{sec:sl-toy}
 
 A toy example of a search for BSM physics is represented in Figure~\ref{fig:toy-example}. The search is performed using 8 mutually exclusive search regions 
-which vary in the expected contributions from backgrounds and a potential BSM physics signal. Figure~\ref{fig:toy-example} (a) indicates the 
-number of observed events in each of the search regions as well as the expected contribution from two different sources of background, stacked on top of one another. 
+which vary in the expected contributions from backgrounds and a potential BSM physics signal. The backgrounds of this search are $\mathrm{Z+jets}$ and $\mathrm{W+jets}$ processes in which the 
+W or Z boson decays to final states with a neutrino, which are commonly the dominant sources of backgrounds in searches for BSM physics. Figure~\ref{fig:toy-example} (a) indicates the 
+number of observed events in each of the search regions as well as the expected contribution from the two different sources of background, stacked on top of one another. 
 The background estimates include systematic uncertainties related to theoretical uncertainties, when the backgrounds are derived using 
 simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
 due to limited sample sizes of events in control regions used to estimate the backgrounds. In this example, two systematics are included, one affecting the $\mathrm{Z}(\rightarrow \nu\nu)+\mathrm{jets}$ background only
@@ -120,26 +121,48 @@ and resolution of the CMS detector. The details of producing signal estimates is
   \end{center}
 \end{figure}
 
-Figure~\ref{fig:covariance} gives the covariance between the total rate of 
+The relevant information in the toy search for the simplified likelihood construction is summarised in Table~\ref{tab:toytable}.
+Furthermore, Figure~\ref{fig:covariance} gives the covariance between the total rate of 
 background contributions expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
 backgrounds are not independant in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
 across the regions. 
 
+\begin{table}[!htb]
+\caption{Observed number of events and total expected background and signal rates for each of the 8 search regions.}
+ \begin{center}
+ \begin{tabular}{|c|c|c|c|}
+\hline
+Search region ($i$) & Data ($n_{i}$) & Total background ($b_{i}$) & Signal ($s_{i}$) \\
+\hline
+1 & 1964 & 2006.4 & 47.0 \\
+2 & 877 & 836.4 & 29.4 \\
+3 & 354 & 350.0 & 21.1 \\
+4 & 182 & 147.1 & 14.3 \\
+5 & 82  & 62.0  & 9.4 \\
+6 & 36  & 26.2  & 7.1 \\
+7 & 15  & 11.1  & 4.7 \\
+8 & 11  & 4.7   & 4.3 \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:monovtab}
+\end{table}
+
 \begin{figure}[hbt]
   \begin{center} 
-   \includegraphics[width=1.5\cmsFigWidth]{figures/htsearch_covariance.pdf}
+   \includegraphics[width=1.8\cmsFigWidth]{figures/htsearch_covariance.pdf}
    \caption{Covariance between the total rate of background  contributions expected  in each of the  search regions.}
    \label{fig:covariance} 
   \end{center}
 \end{figure}
 
-The information provided above is all that is necessary to reconstruct the likelihood in Equation~\ref{eq:full-likelihood} and 
+The information provided in Table~\ref{tab:toytable} and Figure~\ref{fig:covariance} is all that is necessary to reconstruct the likelihood in Equation~\ref{eq:full-likelihood} and 
 can be summarised as follows; 
 
 \begin{itemize}
 \item {The number of observed events in each search region, $n_{i}$.}
 \item {The background and signal expectations in each search region, $b_{i}$ and $s_{i}$.}
-\item {The covariance between the number of background events in search region, $\mathrm{\mathbf{V}}=\left\{V_{ij}\right\}_{i,j=1}^{N}$. }
+\item {The covariance between the number of background events in each search region, $\mathrm{\mathbf{V}}=\left\{V_{ij}\right\}_{i,j=1}^{8}$. }
 \end{itemize}
 
 It is important to note that the estimates of both the background contributions and the 
@@ -158,7 +181,7 @@ likelihood for a fixed value of $\mu$.
 
 A common estimate of the uncertainty in $\mu$ is to determine the interval in $\mu$ such that $q(\mu)\leq1$ and define the uncertainty as the difference between 
 the end points of that interval and $\hat{\mu}$. Furthermore, the profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
-in BSM searches performed by the CMS collaboration, a full description of which  can be found in Refs.~\cite{}.
+in BSM searches performed by the CMS collaboration, a full description of which can be found in Refs.~\cite{Chatrchyan:2012tx}.
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
