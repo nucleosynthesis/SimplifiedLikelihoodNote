@@ -23,7 +23,7 @@ Figure~\ref{fig:monojetv} shows the number of events in each of the $\ETmiss$ in
 categories as well as the total number of expected background events and the relative contribution of each source of background. The same information 
 is tabulated in Tables~\ref{tab:monojettab} and~\ref{tab:monovtab}. 
 
-\begin{figure}[hbt]
+\begin{figure}[hbt!]
   \begin{center} 
    \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/postfit_sig_MV_SRmask.pdf}}
    \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/monojet_PULLS_MASKED_prefit_postfit_signal.pdf}}
@@ -40,6 +40,70 @@ is tabulated in Tables~\ref{tab:monojettab} and~\ref{tab:monovtab}.
    \label{fig:monojetv} 
   \end{center}
 \end{figure}
+
+
+\begin{table}[!htb]
+\caption{Observed and expected event yields in each \ETmiss search region for various background processes in the mono-V category. The background yields and the
+         corresponding uncertainties are obtained after performing a combined fit to data in all the control regions and do not use data in any of the search regions.
+	 }
+ \begin{center}
+ \scriptsize
+ \begin{tabular}{c|c|c|c|c|c|c|c}
+ \hline
+ \ETMiss (GeV) & Data & $\mathrm{Z} \rightarrow \nu\nu$ & $\mathrm{W} \rightarrow \ell\nu$ & Top quark & Dibosons & Other & Total Bkg. \\
+ \hline
+250--300 & 3395 & 1700 $\pm$ 88  & 1100  $\pm$ 65  & 171 $\pm$ 24   & 195 $\pm$ 35    & 49.4 $\pm$ 10.8 & 3220 $\pm$ 130 \\
+300--350 & 2162 & 1180 $\pm$ 68  & 627   $\pm$ 37  & 68.8 $\pm$ 9.7 & 135 $\pm$ 24    & 44.2 $\pm$ 7.2  & 2050 $\pm$ 88 \\
+350--400 & 1093 & 629 $\pm$ 37   & 314   $\pm$ 21  & 28.9 $\pm$ 4.1 & 68.5 $\pm$ 12   & 8.0 $\pm$ 1.8   & 1048 $\pm$ 51 \\
+400--500 & 780  & 500 $\pm$ 33   & 181   $\pm$ 13  & 21.4 $\pm$ 3.0 & 62.8 $\pm$ 11   & 10.1 $\pm$ 1.8  & 775  $\pm$ 40 \\
+500--600 & 207  & 131 $\pm$ 12   & 38.5  $\pm$ 3.4 & 2.9 $\pm$ 0.4  & 16.8 $\pm$ 3.0  & 4.1 $\pm$ 0.8   & 193  $\pm$ 14 \\
+600--750 & 90   & 57.1 $\pm$ 5.9 & 15.6 $\pm$ 1.6  & 1.0 $\pm$ 0.1  & 9.8 $\pm$ 1.7   & 0.8 $\pm$ 0.1   & 84.2 $\pm$ 6.9 \\
+750--1000 & 27  & 16.5 $\pm$ 2.7 & 3.6  $\pm$ 0.6  & -              & 4.7 $\pm$ 0.8   & 0.01 $\pm$ 0.01 & 24.8 $\pm$ 3.1 \\
+ \hline
+\end{tabular}
+\end{center}
+\label{tab:monovtab}
+\end{table}
+
+
+
+\begin{table}[htb]
+\caption{Observed and expected event yields in each \ETmiss search region for various background processes in the monojet category. The background yields and the
+         corresponding uncertainties are obtained after performing a combined fit to data in all the control regions and do not use data in any of the search regions.
+	 }
+ \begin{center}
+ \scriptsize
+ \begin{tabular}{c|c|c|c|c|c|c|c}
+ \hline
+ \ETmiss (GeV) & Data & $\mathrm{Z} \rightarrow \nu\nu$ & $\mathrm{W} \rightarrow \ell\nu$ & Top quark & Dibosons & Other & Total Bkg. \\
+ \hline
+200--230 & 140642 & 71300 $\pm$ 2200 & 54600 $\pm$ 2300 & 2140 $\pm$ 320  & 1320 $\pm$ 220   & 2470 $\pm$ 310   & 132100 $\pm$ 4000 \\
+230--260 & 73114  & 39500 $\pm$ 1300 & 27500 $\pm$ 1200 & 1060 $\pm$ 160  & 790 $\pm$ 130    & 1090 $\pm$ 130   & 69900  $\pm$ 2200 \\
+260--290 & 38321  & 21900 $\pm$ 670  & 13600 $\pm$ 550  & 440 $\pm$ 65    & 364 $\pm$ 61     & 498 $\pm$  65    & 36800  $\pm$ 1100 \\
+290--320 & 21417  & 12900 $\pm$ 400  & 7300 $\pm$ 290   & 210 $\pm$ 31    & 235 $\pm$ 40     & 216 $\pm$ 30     & 20780  $\pm$ 630 \\
+320--350 & 12525  & 8000 $\pm$ 280   & 4000 $\pm$ 170   & 107 $\pm$ 16    & 145 $\pm$ 24     & 124 $\pm$ 18     & 12340 $\pm$ 400 \\
+350--390 & 9515   & 6100 $\pm$ 220   & 2800 $\pm$ 130   & 74  $\pm$ 11    & 111 $\pm$ 19     & 87  $\pm$ 13     & 9160 $\pm$ 320 \\
+390--430 & 5174   & 3500 $\pm$ 160   & 1434 $\pm$ 66    & 30.1 $\pm$ 4.5  & 58.4 $\pm$ 9.9   & 33.4 $\pm$ 5.3   & 5100 $\pm$ 200 \\
+430--470 & 2947   & 2100 $\pm$ 98    & 816 $\pm$ 37     & 16.6 $\pm$ 2.5  & 42.4 $\pm$ 7.1   & 16.3 $\pm$ 2.7   & 3000 $\pm$ 120 \\
+470--510 & 1777   & 1300 $\pm$ 66    & 450 $\pm$ 20     & 7.4 $\pm$ 1.1   & 24.6 $\pm$ 4.1   & 9.6 $\pm$ 1.6    & 1763 $\pm$ 79 \\
+510--550 & 1021   & 735 $\pm$ 39     & 266 $\pm$ 13     & 5.2 $\pm$ 0.8   & 18.5 $\pm$ 3.1   & 7.0 $\pm$ 1.3    & 1032 $\pm$ 48 \\
+550--590 & 694    & 513 $\pm$ 31     & 152 $\pm$ 8      & 2.4 $\pm$ 0.4   & 13.5 $\pm$ 2.3   & 1.1 $\pm$ 0.3    & 683 $\pm$ 37 \\
+590--640 & 554    & 419 $\pm$ 23     & 120 $\pm$ 6      & 1.5 $\pm$ 0.2   & 10.6 $\pm$ 1.8   & 2.1 $\pm$ 0.4    & 554 $\pm$ 28 \\
+640--690 & 339    & 246 $\pm$ 16     & 62.8 $\pm$ 3.8   & 1.3 $\pm$ 0.2   & 11.4 $\pm$ 1.9   & 1.0 $\pm$ 0.2    & 322 $\pm$ 19 \\
+690--740 & 196    & 139 $\pm$ 11     & 34.2 $\pm$ 2.4   & 0.6 $\pm$ 0.1   & 4.2 $\pm$ 0.7    & 0.20 $\pm$ 0.07  & 178 $\pm$ 13 \\
+740--790 & 123    & 97.2 $\pm$ 7.2   & 22.7 $\pm$ 1.7   & 0.22 $\pm$ 0.03 & 1.4 $\pm$ 0.2    & 0.63 $\pm$ 0.12  & 122 $\pm$ 8 \\
+790--840 & 80     & 59.8 $\pm$ 5.8   & 12.9 $\pm$ 1.2   & 0.13 $\pm$ 0.02 & 1.5 $\pm$ 0.3    & 0.05 $\pm$ 0.02  & 74.5 $\pm$ 6.6 \\
+840--900 & 68     & 64.3 $\pm$ 6.4   & 12.3 $\pm$ 1.1   & 0.24 $\pm$ 0.04 & 0.92 $\pm$ 0.11  & 0.03 $\pm$ 0.01  & 77.8 $\pm$ 7.2 \\
+900--960 & 37     & 31.5 $\pm$ 4.3   & 6.0 $\pm$ 0.7    & 0.21 $\pm$ 0.03 & 0.74 $\pm$ 0.10  & 0.01 $\pm$ 0.01  & 38.4 $\pm$ 4.8 \\
+960--1020 & 23    & 20.8 $\pm$ 3.0   & 3.4 $\pm$ 0.5    & -               & 0.94 $\pm$ 0.23  & 0.01 $\pm$ 0.01  & 25.1 $\pm$ 3.4 \\
+1020--1090 & 12   & 16.3 $\pm$ 2.6   & 3.1 $\pm$ 0.5    & 0.04 $\pm$ 0.01 & 1.6  $\pm$ 0.3   & 0.01 $\pm$ 0.01  & 21.1 $\pm$ 3.0 \\
+1090--1160 & 7    & 8.1 $\pm$ 1.8    & 1.3 $\pm$ 0.3    & -               & -                & -                & 9.4 $\pm$ 1.9 \\
+1160--1250 & 26   & 18.6 $\pm$ 2.7   & 2.7 $\pm$ 0.4    & -               & 1.3 $\pm$ 0.2    & -                & 22.6 $\pm$ 3.0 \\
+ \hline
+\end{tabular}
+\end{center}
+\label{tab:monojettab}
+\end{table}
 
 
 The dominant backgrounds in this search are derived by defining several control regions in the data and simultaneously fitting for their contribution 
