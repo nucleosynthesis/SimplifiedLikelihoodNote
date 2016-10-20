@@ -1,0 +1,59 @@
+\section{Appendices}
+
+This section details validation of the use of simplified likelihoods in two example searches for BSM physics at CMS. 
+\emph{The section is not intended for public dissemination and should be considered as internal material only.}
+
+\subsection{Monojet/V search -- EXO-16-037}
+
+The simplified likelihood approach has been validated in a search dark matter (DM) in  
+13\TeV proton-proton collision events with a large missing transverse momentum and jets resulting from radiation 
+of a gluon or a vector boson~\cite{}.
+
+The search comprises two categories of events that are defined by the nature of the jets in the event. 
+The first category, labelled mono-V, selects events which contain a ``fat-jet'' with a mass and substructure 
+consistent with that of a hadrinically decaying W or Z boson. The second category, the monojet category, 
+includes events failing the selection of the first but containing at least one high transverse momentum jet. 
+In both categories, the magnitude of the missing transverse momentum ($\ETmiss$) is required to be greater than 200\GeV and 
+each category is divided into several search regions defined as intervals in $\ETmiss$, 7 in the mono-V category and 22 in the 
+monojet category making a total of 29 search regions.  The results of the search are interpreted 
+in terms of simplified models for DM production~\cite{}, mediated via vector, axial vector, scalar or pseudoscalar interactions and 
+in terms of a Higgs boson decaying to invisible particles. 
+
+Figure~\ref{fig:monojetv} shows the number of events in each of the $\ETmiss$ intervals observed in each of two event 
+categories as well as the total number of expected background events and the relative contribution of each source of background. The same information 
+is tabulated in Tables~\ref{tab:monojettab} and~\ref{tab:monovtab}. 
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/postfit_sig_MV_SRmask.pdf}}
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/monojet_PULLS_MASKED_prefit_postfit_signal.pdf}}
+\caption{
+      Observed number of events in each \ETmiss interval in the (a) mono-V and (b) monojet categories compared with the background expectations for various SM processes.
+      The last bin includes all events with \ETmiss$ > 1160 \GeV$ for the monojet category and \ETm$ > 750 \GeV$ for the mono-V category.
+      The expected background distributions are evaluated after performing a combined fit to the data in all the control regions, but not including the search regions.
+      Expected signal distributions from the 125 GeV Higgs boson decaying exclusively to invisible particles, and a 1.6 TeV axial-vector mediator decaying to 1 GeV DM particles, are overlaid.
+      The ratio of data with the background prediction is shown for both the monojet and mono-V signal regions.
+      The gray bands in these ratio plots indicate the uncertainty in the background prediction and are dervied as the square root of the variance of the expected number of background events.
+      Finally the difference between data and the background prediction relative to the uncertainty in the prediction,
+      are also shown in the lower panels.
+   }
+   \label{fig:monojetv} 
+  \end{center}
+\end{figure}
+
+
+The dominant backgrounds in this search are derived by defining several control regions in the data and simultaneously fitting for their contribution 
+in the control and search regions. The full procedure is described in detail in Secion 4 of Ref.~\ref{}. The smaller backgrounds are estimated from 
+simulation, tuned using data. The full likelihood model used in this search contains $\mathcal{O}(100)$ nuisance parameters relating to theoretical 
+extrapolations between the control regions and the search regions as well as experimental sytematic uncertainties on 
+the lepton identification and jet reconstruction used. The full likelihood is therefore prohibitavely complicated, making its publication unfeasible. 
+Instead, the simplified likelihood approach can be used. Figure~\ref{fig:fullcovariance} shows the correlation coefficeints, \left\{$\rho_{ij}\right\}_{i,j=1}^{29}$, between the total background 
+rate in each of the 29 search regions. Both the correlations and the total expected background contributions are dervied without using the data in the 
+search regions, allowing for construction of the simplified likelihood. Note that covariance matrix can be derived from the correlation coefficients and 
+the variance (the square of the last colum in Tables~\ref{tab:monojettab} and~\ref{tab:monovtab}) since, 
+
+\begin{align}
+V_{ij} = \rho_{ij}\cdot\sigma_{i}\sigma_{j}, &&  \sigma_{k}^{2}=V_{kk}
+\end{align}
+
+
