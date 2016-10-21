@@ -8,6 +8,65 @@ are described fully in \cite{CMS-PAS-SUS-16-016}. In this section,
 the use of aggregate regions is discribed for the \alphat analysis, as well as a 
 validation of the simplified likelihood method.
 
+\subsection{Defining agregate regions}
+
+For a binned analysis which control regions are used to constrain backgrounds in the signal region
+(with relevant systematics) the likelihood may generally be written in two parts, splitting the signal
+and control regions. To show how the aggregate regions are defined a simplified scenario 
+where each signal bin contains only one background and where each control region bin is used to
+predict only one signal region bin is considered below. It is trivial to see how this may
+be extended to more complex scenarios. The signal region section of the likehood may be written
+as a product over bins, i, as in Equation~\ref{eq:hadronicLikelihood}.
+
+\begin{equation}
+\mathcal{L}_{\mathrm{signal}}=\prod_i{\mathrm{Pois}(n_{\mathrm{signal},i} |\, b_{\mathrm{signal},i}
+\times\overline{\rho}_{\mathrm{signal},i}\times{a_i} + s_{\mathrm{signal}}\times\overline{\rho}^\mathrm{s}_{\mathrm{signal},i}\times\mu)}
+\label{eq:hadronicLikelihood}
+\end{equation}
+
+where $n_{\mathrm{signal},i}$ is the observation in the signal bin, $b_{\mathrm{signal},i}$
+the background prediction from simulation, $\overline{\rho_{i}}$ the set of systematics
+on the signal region prediction, ${a_i}$ an unconstrained parameter that will connect to the 
+control region, $s_{\mathrm{sig}}$ the signal model contribution from simulation, 
+$\overline{\rho}_{i,sig}$ the set of systematics on the signal contribution and $\mu$ the
+unconstrained signal strength parameter.  The connection to the control region 
+may be written as in Equation~\ref{eq:controlLikelihood}.
+
+\begin{equation}
+\mathcal{L}_{\mathrm{control},i}=\prod_i{\mathrm{Pois}(n_{\mathrm{control},i} |\, b_{\mathrm{control},i}
+\times\overline{\rho}_{\mathrm{control}}\times{a_i} + s_{\mathrm{control}}\times\overline{\rho}^\mathrm{s}_{\mathrm{control},i}\times\mu)}
+\label{eq:controlLikelihood}
+\end{equation}
+
+where parameters are as defined in Equation~\ref{eq:hadronicLikelihood} but applied in the control region. 
+Here $\overline{\rho}_{\mathrm{control},i}$ contains both systematic uncertainties on the control region
+and on the connection of the control to signal region. Correlation between bins in the signal
+and control regions are introduced through the correlation or anticorrelation of the systematic uncertainties
+contained in both $\overline{\rho}_{\mathrm{signal},i}$ and $\overline{\rho}_{\mathrm{control},i}$. For a 
+more complex likelihood additional correlations are introduced when control regions are used to predict
+multiple signal region bins. The overall likelihood of $\mathcal{L}_{\mathrm{signal}}\times\mathcal{L}_{\mathrm{control}}$
+is then minimized with respect to $mu$,$\rho$ and $\rho_^{mathrm{s}}$. 
+
+The likelihood for the aggregate regions may then be defined as in Equation~\ref{eq:agg-hadronicLikelihood}.
+
+\begin{equation}
+\mathcal{L}_{\mathrm{l}}=\prod_{agg}{\mathrm{Pois}(n_{\mathrm{signal},agg} |\,\sum_i^{k_{agg}}{b_{\mathrm{signal},i}
+\times\overline{\rho}_{\mathrm{signal},i}\times{a_i} + s_{\mathrm{signal}}\times\overline{\rho}^\mathrm{s}_{\mathrm{signal},i}\times\mu)}}
+\times\mathcal{L}_{\mathrm{control}}$
+\label{eq:agg-hadronicLikelihood}
+\end{equation}
+
+where the contributions of all bins being merged are summed to provide a total background and signal
+contribution to the aggregate bin. The control region section of the likelihood
+is unchanged and so the correlation model for the predictions is maintained. 
+The likelihood is minimized with respect to $mu$,$\rho$, $\a_i$, $\rho_^{mathrm{s}}$ as 
+before. For analyses which do not include a control region explicitely in the likelihood 
+the aggregation process is similar, however, in this case the parameters $a_i$ are not 
+freely floating but are instead constrained according to a pdf, such as a gamma distribution, 
+which encodes the uncertainty from the control region. The form of the nominal and aggregate
+likelihoods are otherwise unchanged. In Section~\ref{sec:ssr-alphat} an example of the use of 
+aggregate regions is shown for the \alphat analysis.
+
 \subsection{Application of the the aggregate regions with the \alphat analysis}
 
 The final \nj,\nb categories and \scalht binning used for the full likelihood 

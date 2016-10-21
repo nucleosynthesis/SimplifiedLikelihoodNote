@@ -4,51 +4,35 @@
 
 Inclusive searches for new physics typically use fine categorisation to allow
 sensitivity to a wide range of models. However, this can make the use
-of the search for re-interpretation impractical. This section describes how this categorisation
-may be simplified without breaking the correlation between the bins through defining aggregate regions
-\footnote{In this section a binned analysis is considered, however, the extension to searches using continous functions for signal
-and background modelling is trivial.}. The aggregate regions may be defined with 
-the original likelihood or, approximately, with the predictions and covariance matrix. 
+of the search for re-interpretation impractical. 
+This section describes how this categorisation may be simplified without breaking the correlation 
+between the bins by defining aggregate regions.
 
-A generic binned likelihood is defined in Equation~\ref{eq:generic-binned-likelihood}. 
+Considering the simplified likelihood defined in Equation~\ref{eq:full-likelihood},
+the likelihood for aggregate regions may be written as in Equation~\ref{eq:agg-full-likelihood}.
 
 \begin{equation}
- \mathcal{L}(\mu, \boldsymbol{\theta}) = 
- \prod_i(\mathrm{data_i}|\mu\cdot s_i(\boldsymbol{\theta}) + b_i(\boldsymbol{\theta})) \cdot p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})
-\label{eq:generic-binned-likelihood}
+\mathcal{L}(\mu, \boldsymbol{\theta}) =  \prod_{I=1}^{N_I} \dfrac{(\sum_{i}(\mu \cdot s_{i}+b_{i})+\theta_{I})^{n_{I}} e^{-(\sum_{i}(\mu \cdot s_{i}+b_{i})+\theta_{I})} }{n_{I}!} \cdot
+\mathrm{exp}\left(-\dfrac{1}{2} \boldsymbol{\theta}^{T}\mathrm{\mathbf{V^A}}^{-1}\boldsymbol{\theta} \right)
+\label{eq:agg-full-likelihood}
 \end{equation}
 
-where the product is over all bins in the search. To define aggregate regions the 
-predictions in the bins being aggregated is summed while maintaining all
-information on the nuisance parameters. The aggregate likelihood is therefore defined
-in Equation ~\ref{eq:agg-generic-binned-likelihood}.
-\begin{equation}
- \mathcal{L}(\mu, \boldsymbol{\theta}) = 
- \prod_I(\sum_i\mathrm{data_i}|\sum_i(\mu\cdot s_i(\boldsymbol{\theta}) + b_i(\boldsymbol{\theta}))) \cdot p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})
-\label{eq:agg-generic-binned-likelihood}
-\end{equation}
-
-where the sum is over all bins used to define each aggregate region, $I$.
-The aggregate regions may then be used to derive the predictions and covariance that may be
-used for the simplified likelihood discussed in 
-Section~\ref{sec:simplified-likelihood}. Note that the probability density for the nuisance
-parameters is unchanged.
-
-An alternative derivaration of the predictions and covariance of aggregate region 
-required for the simplified likelihood definition in Equation~\ref{eq:full-likelihood} can
-be made using the predictions and covariance of the nominal signal regions discussed in 
-Section~\ref{sec:simplified-likelihood}.
-These can be merged using Equation~\ref{eq:agg-cov}. For the covariance of the aggregate
-region to be accurate relies on the same conditions on the nuisances outlined 
-in Section~\ref{sec:simplified-likelihood}. 
+where the sums are over the bins being aggregated into each aggregate region, $I$ and 
+$\mathbf{V^A}$ is the covariance of the aggregate regions. The 
+aggregate predictions and covariance required for Equation~\ref{eq:agg-full-likelihood}
+may be derived, approximately, using the predictions and covariance
+of the nominal signal regions (discussed in Section~\ref{sec:simplified-likelihood}).
+Equation~\ref{eq:agg-cov} shows how the predictions and covariance in the aggregate
+regions are related to those of the nominal region. 
+For the covariance of the aggregate region to be accurate relies on the same conditions 
+on the nuisances outlined in Section~\ref{sec:simplified-likelihood}. 
 
 \begin{align}
-b_{I} = \sum_i b_{i} && V_{IJ}=\sum_{ij}V_{ij}
+b_{I} = \sum_i b_{i} && V^{A}_{IJ}=\sum_{ij}V_{ij}
 \label{eq:agg-cov}
 \end{align}
 
-where the sum is over all regions being aggregated. The aggregate predictions
-and covariance can then be used to define the simplified likelihood.
+where the sums are over all regions being aggregated. 
 
 \subsection{Example of the use of aggregate regions}
 \label{sec:agg-toy}
