@@ -171,7 +171,7 @@ can be summarised as follows;
 \end{itemize}
 
 It is important to note that the estimates of both the background contributions and the 
-covariance matrix do not use the data in the 8 search regions, making them statistically independant from the data. The data in the search regions 
+covariance matrix do not use the data in the 8 search regions, making them statistically independent from the data. The data in the search regions 
 can be used to further constrain the background (meaning to reduce the uncertainties on the nuisance parameters $\boldsymbol{\theta}$) through the use 
 of the profiled likelihood ratio, which is defined as 
 
@@ -182,11 +182,12 @@ q(\mu) = -2\ln \dfrac {\mathcal{L}(\mu,\hat{\boldsymbol{\theta}}_{\mu})} {\mathc
 
 where $\hat{\mu}$ and $\hat{\hat{\boldsymbol{\theta}}}$ are the values of the parameters $\mu$ and $\boldsymbol{\theta}$ respectively, 
 which maximise the likelihood. The values $\hat{\boldsymbol{\theta}}_{\mu}$ are the values of $\boldsymbol{\theta}$ which maximise the 
-likelihood for a fixed value of $\mu$. 
+likelihood for a fixed value of $\mu$. The value of $\hat{\mu}$ is usually referred to as the ``best-fit'' value.
 
 A common estimate of the uncertainty in $\mu$ is to determine the interval in $\mu$ such that $q(\mu)\leq1$ and define the uncertainty as the difference between 
 the end points of that interval and $\hat{\mu}$. Furthermore, the profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
-in BSM searches performed by the CMS collaboration, a full description of which can be found in Refs.~\cite{Chatrchyan:2012tx}.
+in BSM searches performed by the CMS collaboration, a full description of which can be found in Refs.~\cite{Chatrchyan:2012tx}. The 
+uncertainty in $\mu$ often provides a good indication of the sensitivity of a search to a given BSM signal. 
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
