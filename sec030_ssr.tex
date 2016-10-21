@@ -14,7 +14,7 @@ the likelihood for aggregate regions may be written by replacing the
 background predictions as shown in Equation~\ref{eq:b-agg},
 
 \begin{align}
-b_{i} + \theta_i \rightarrow b_I + \theta_I \equiv \sum_{i}^{N_i}(b_{i}) + \theta_I
+b_{i} + \theta_i \rightarrow b_I + \theta_I \equiv \sum_{i}(b_{i}) + \theta_I
 \label{eq:b-agg}
 \end{align}
 
@@ -23,13 +23,13 @@ Note that all nominal regions must be included in the aggregate likelihood.
 Similarly, the signal counts, observations and covariance used in Equation~\ref{eq:full-likelihood} are
 replaced with those from the aggregate regions. These may be derived, approximately, using the predictions and covariance
 of the nominal signal regions (discussed in Section~\ref{sec:simplified-likelihood}).
-Equation~\ref{eq:agg-cov} shows how the predictions and covariance in the aggregate
-regions are related to those of the nominal region. The approximation in using Equation~\ref{eq:agg-cov} to 
+Equation~\ref{eq:agg-cov} shows how the covariance in the aggregate
+regions is related to the covariance in the nominal region. The approximation in using Equation~\ref{eq:agg-cov} to 
 define the aggregate region relies on the same conditions 
 on the nuisances outlined in Section~\ref{sec:simplified-likelihood}. 
 
 \begin{align}
-b_{I} = \sum_i b_{i} && V_{IJ}=\sum_{ij}V_{ij}
+V_{IJ}=\sum_{ij}V_{ij}
 \label{eq:agg-cov}
 \end{align}
 
