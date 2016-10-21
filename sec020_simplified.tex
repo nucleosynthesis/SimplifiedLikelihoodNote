@@ -94,7 +94,8 @@ $\tilde{\boldsymbol{\theta}}=0$. The simplified likelihood can now be expressed 
 \end{equation}
 
 where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected background contributions across the search regions.
-
+In the following example, the simplfied likelihood is constructed using the statistics package {\sc RooFit}~\cite{roofit} but it should be noted that 
+the procedure does not prohibit the use of any other tool for its construction. 
 
 \subsection{Example of constructing the simplified likelihood}
 \label{sec:sl-toy}
@@ -192,7 +193,7 @@ uncertainty in $\mu$ often provides a good indication of the sensitivity of a se
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
 background yields by setting $V_{ij}=0$ for $i\neq j$. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
-namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
+namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown.The simplified 
 likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
 
