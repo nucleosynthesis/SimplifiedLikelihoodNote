@@ -85,10 +85,10 @@ as for the background contributions. }
 \end{itemize}
 
 Under these assumptions, $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ can be modelled as a multivariate Gaussian with the mean vector identified with external measurements of 
-$\tilde{\boldsymbol{\theta}}=0$. The likelihood of Equation.~\ref{eq:generic-likelihood} can then be expressed as,
+$\tilde{\boldsymbol{\theta}}=0$. The simplified likelihood can now be expressed as,
 
 \begin{equation}
-\mathcal{L}(\mu, \boldsymbol{\theta}) =  \prod_{i=1}^{N} \dfrac{(\mu \cdot s_{i}+b_{i}+\theta_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i}+\theta_{i})} }{n_{i}!} \cdot  
+\mathcal{L}_{S}(\mu, \boldsymbol{\theta}) =  \prod_{i=1}^{N} \dfrac{(\mu \cdot s_{i}+b_{i}+\theta_{i})^{n_{i}} e^{-(\mu \cdot s_{i}+b_{i}+\theta_{i})} }{n_{i}!} \cdot  
 \mathrm{exp}\left(-\dfrac{1}{2} \boldsymbol{\theta}^{T}\mathrm{\mathbf{V}}^{-1}\boldsymbol{\theta} \right)
 \label{eq:full-likelihood}
 \end{equation}
@@ -176,7 +176,7 @@ can be used to further constrain the background (meaning to reduce the uncertain
 of the profiled likelihood ratio, which is defined as 
 
 \begin{equation}
-q(\mu) = -2\ln \dfrac {\mathcal{L}(\mu,\hat{\boldsymbol{\theta}}_{\mu})} {\mathcal{L}(\hat{\mu},\hat{\hat{\boldsymbol{\theta}}})}
+q(\mu) = -2\ln \dfrac {\mathcal{L}_{S}(\mu,\hat{\boldsymbol{\theta}}_{\mu})} {\mathcal{L}_{S}(\hat{\mu},\hat{\hat{\boldsymbol{\theta}}})}
 \label{eq:llr}
 \end{equation}
 
@@ -191,7 +191,8 @@ uncertainty in $\mu$ often provides a good indication of the sensitivity of a se
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
-background yields by setting $V_{ij}=0$ for $i\neq j$. The results using the full likelihood of Equation~\ref{eq:generic-likelihood} are also shown. The simplified 
+background yields by setting $V_{ij}=0$ for $i\neq j$. The results subsitituing $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
+namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
 likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
 
