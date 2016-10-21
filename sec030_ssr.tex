@@ -6,29 +6,30 @@ Inclusive searches for new physics typically use fine categorisation to allow
 sensitivity to a wide range of models. However, this can make the use
 of the search for re-interpretation impractical. 
 This section describes how this categorisation may be simplified without breaking the correlation 
-between the bins by defining aggregate regions.
+between the bins by defining aggregate regions which are disjoint, 
+contiguous and cover the full signal region.
 
 Considering the simplified likelihood defined in Equation~\ref{eq:full-likelihood},
-the likelihood for aggregate regions may be written as in Equation~\ref{eq:agg-full-likelihood}.
+the likelihood for aggregate regions may be written by replacing the 
+background predictions as shown in Equation~\ref{eq:b-agg},
 
-\begin{equation}
-\mathcal{L}(\mu, \boldsymbol{\theta}) =  \prod_{I=1}^{N_I} \dfrac{(\sum_{i}(\mu \cdot s_{i}+b_{i})+\theta_{I})^{n_{I}} e^{-(\sum_{i}(\mu \cdot s_{i}+b_{i})+\theta_{I})} }{n_{I}!} \cdot
-\mathrm{exp}\left(-\dfrac{1}{2} \boldsymbol{\theta}^{T}\mathrm{\mathbf{V^A}}^{-1}\boldsymbol{\theta} \right)
-\label{eq:agg-full-likelihood}
-\end{equation}
+\begin{align}
+b_{i} + \theta_i \rightarrow b_I + \theta_I \equiv \sum_{i}^{N_i}(b_{i}) + \theta_I
+\label{eq:b-agg}
+\end{align}
 
-where the sums are over the bins being aggregated into each aggregate region, $I$ and 
-$\mathbf{V^A}$ is the covariance of the aggregate regions. The 
-aggregate predictions and covariance required for Equation~\ref{eq:agg-full-likelihood}
-may be derived, approximately, using the predictions and covariance
+where the sum is over all regions being aggregated into regions $I$.
+Note that all nominal regions must be included in the aggregate likelihood.
+Similarly, the signal counts, observations and covariance used in Equation~\ref{eq:full-likelihood} are
+replaced with those from the aggregate regions. These may be derived, approximately, using the predictions and covariance
 of the nominal signal regions (discussed in Section~\ref{sec:simplified-likelihood}).
 Equation~\ref{eq:agg-cov} shows how the predictions and covariance in the aggregate
-regions are related to those of the nominal region. 
-For the covariance of the aggregate region to be accurate relies on the same conditions 
+regions are related to those of the nominal region. The approximation in using Equation~\ref{eq:agg-cov} to 
+define the aggregate region relies on the same conditions 
 on the nuisances outlined in Section~\ref{sec:simplified-likelihood}. 
 
 \begin{align}
-b_{I} = \sum_i b_{i} && V^{A}_{IJ}=\sum_{ij}V_{ij}
+b_{I} = \sum_i b_{i} && V_{IJ}=\sum_{ij}V_{ij}
 \label{eq:agg-cov}
 \end{align}
 
