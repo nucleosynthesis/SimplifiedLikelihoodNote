@@ -2,7 +2,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-Searches for new physics beyond the standard model (BSM) are performed using a wide variety of 
+Searches for new physics beyond the standard model (BSM) by the CMS collaboration are performed using a wide variety of 
 strategies and using events with different final states and kinematic properties.  Often, 
 the results of these searches are presented in terms of ``model-independent'' limits on the production 
 cross-section for some new BSM particle. Common examples are searches for resonances whose decay products 
@@ -15,10 +15,21 @@ object in the event, such as charged leptons or jets, or based on a multivariate
 identification quality of the final state particles in the event. For such searches, limits can only be expressed in terms of the 
 parameter space of some specific complete or simplified BSM model.
 
-While re-interpretations of these types of searches are possible, they must often rely heavily on a simplified simulation of 
-the detector response and resolution in order to model the expected contributions from SM processes and their uncertainties. 
-In this note, a procedure for re-interpreting BSM physics searches using a reduced set of information, which can be provided in CMS publications, 
-on the model used for the expected background and signal processes contributing to the search is presented. 
+Searches for BSM physics are often interpreted in only a small subset of the new physics
+models for which they may be sensitive and must be re-interpreted by those
+outside the CMS collaboration to evaluate their impact on generic models of new physics.
+For example, the mastercode collaboration re-interprets searches to provide constraints
+on GUT scale models of supersymmetry (SUSY) \cite{mastercode}. For the reinterpretation the signal contribution 
+is typically determined using an event generator such as PYTHIA \cite{pythia} followed by a detector
+simulation with a program such as DELPHES \cite{delphes} or by matching truth-level particles to
+the reconstructed objects according to the re-ported detector performances. 
+The background model and associated systematic uncertainties for the reinterpretation often rely
+on simplfying assumptions which can cause bias in the result by, for example, breaking the 
+correlation model used in the search. 
+
+In this note, a procedure for reliably re-interpreting BSM physics searches using a reduced set of information
+ on the background model and systematic uncertainties, which can be provided in CMS publications, is presented.
+
 
 
 %%____________________________________________________________________________||
