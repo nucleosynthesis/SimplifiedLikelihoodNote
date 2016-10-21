@@ -92,8 +92,8 @@ corrected based on the nominal, finely binned regions with relevant systematics.
 The aggregate regions provide an easily comprehensible
 overview of the signal region when compared to the results
 of the nominal signal bins. Figure~\ref{fig:aggFitResult} shows
-the post fit predictions for the aggregate regions compared 
-to the observed data.
+the post fit predictions in the mid and high njet categories
+for the aggregate regions compared to the observed data.
 
 To evaluate the effect on the reach of the \alphat analysis the expected and observed 95\% upper limit
 on the signal strength, defined as in \cite{limit-stuff}, for the full signal region 
@@ -110,9 +110,14 @@ as will be discussed in Section~\ref{sec:simplified-likelihood},
 the covariance matrix encoding the level of correlation between bins must also be utilised.
 \clearpage
 \begin{figure}[!tbhp]
-    \caption{Post fit signal region predictions and data observations for the aggregate regions. 
-    \label{fig:aggFitResult} }
-    \includegraphics[width=2.9\cmsFigWidth]{figures/alphaT/agg_fitResults/PostfitB_stackOverlay.pdf}
+    \caption{ Signal region predictions and data observations for the aggregate regions. 
+    The predictions are made using a fit to the control region only. \label{fig:aggFitResult} }
+  \begin{center}
+    \subfigure[Mid \nj, $\nb \leq 1$]   { \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_le1b_ge3j_200_Inf_crfit_aux.pdf} } ~~
+    \subfigure[Mid \nj, $\nb \geq 2$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge2b_ge3j_200_Inf_crfit_aux.pdf} } \\
+    \subfigure[High \nj, $\nb \leq 1$]   { \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_le1b_ge5j_200_Inf_crfit_aux.pdf} } ~~
+    \subfigure[High \nj, $\nb \geq 2$]{ \includegraphics[width=0.4\textwidth]{figures/alphaT/agg_fitResults/mhtShape_ge2b_ge5j_200_Inf_crfit_aux.pdf} } \\
+  \end{center}
 \end{figure}
 
 
@@ -150,8 +155,7 @@ while it is clear that ignoring the correlations results in a bias of the estima
   \end{center}
 \end{figure}
 
-Finally, the limits across the full plane for a sample model (T2bb) are shown in Figure~{}.
-In Figure~\ref{fig:limitPlanes} the ratio between the limit with the simplified and the full likelihood are shown.
+In Figure~\ref{fig:limitPlanes} the ratio between the limit with the simplified and the full likelihood is shown.
 The contours of $\mu=1$ excluded at $95\%$ for the full likelihood, the simplified likelihood
 and the simplified likelihood where correlations are neglected are overlaid. When correlations
 are considered the simplified and full likelihood provide comparable results, however, if 
