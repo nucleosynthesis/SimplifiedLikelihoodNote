@@ -78,6 +78,10 @@ at least for values of $\boldsymbol{\theta}$ which are close to $\tilde{\boldsym
 \item{The number of events $n_{i}$ are statistically independant from one another and the background contributions $b_{i}$ and covariance matrix $\mathrm{\mathbf{V}}$ are 
 statistically independant of the data from all search regions. This is true when there are no events which are included in more than one search region and when the methods used to 
 determine $b_{i}$ and $\mathrm{\mathbf{V}}$ do not use the data from the search regions.}
+
+\item{The sytstematic uncertainties in the signal can be neglected. These will strongly depend on the specific BSM physics model. 
+Systematic uncertainties on the signal can be accounted for by adding appropriate nuisance parameters with Gaussian constraints 
+as for the background contributions. }
 \end{itemize}
 
 Under these assumptions, $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ can be modelled as a multivariate Gaussian with the mean vector identified with external measurements of 
@@ -103,7 +107,8 @@ The background estimates include systematic uncertainties related to theoretical
 simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
 due to limited sample sizes of events in control regions used to estimate the backgrounds. In this example, two systematics are included, one affecting the $\mathrm{Z}(\rightarrow \nu\nu)+\mathrm{jets}$ background only
 and one affecting the $\mathrm{W}(\rightarrow l\nu)+\mathrm{jets}$ background only. These two systematics are modelled as two nuisance parameters in the full likelihood of Equation~\ref{eq:generic-likelihood}. 
-Figure~\ref{fig:toy-example} (b) shows the variation of the expected contribution due to the systematic uncertainties. The dot and dot--dashed histograms show the expected 
+Figure~\ref{fig:toy-example} (b) shows the variation of the expected contribution due to the systematic uncertainties. 
+The dot and dot--dashed histograms show the expected 
 contributions when each of the two nuisance parameters are varied positively and negatively, respectively.
 Finally, the expected contribution from a BSM physics signal is shown. 
 The ratio of the expected signal to the total background esimtate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (b). 
@@ -145,7 +150,7 @@ Search region ($i$) & Data ($n_{i}$) & Total background ($b_{i}$) & Signal ($s_{
 \hline
 \end{tabular}
 \end{center}
-\label{tab:monovtab}
+\label{tab:toytable}
 \end{table}
 
 \begin{figure}[hbt]
@@ -187,7 +192,7 @@ Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\m
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
 background yields by setting $V_{ij}=0$ for $i\neq j$. The results using the full likelihood of Equation~\ref{eq:generic-likelihood} are also shown. The simplified 
 likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
-addition, the width of the curve ignoring the correlation is smaller than the other curves meaning the uncertainty estimate on $\mu$ will be smaller in that case.  
+addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
 
 
 \begin{figure}[hbt]
