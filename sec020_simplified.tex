@@ -13,17 +13,17 @@ The observed data are interpreted using a likelihood defined as,
 \label{eq:generic-likelihood}
 \end{equation}
 
-where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}))$ is a product of the proability 
+where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}))$ is a product of the probability 
 over all events or bins in one or more discriminating variables or event categories to observe the data. The parameters 
 $\boldsymbol{\theta}=\left(\theta_{1},\theta_{2}...\right)$ are nuisance parameters, which are used to model the variation of the 
 signal $s(\boldsymbol{\theta})$ and background $b(\boldsymbol{\theta})$ models due to systematic uncertainties. Often, these nuisance 
 parameters are constrained by external measurements, $\tilde{\boldsymbol{\theta}}$, which are encoded in the 
 probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
-The parameter $\mu$, typically referred to as a signal strenth, is a common scale factor for the expected signal contribution. 
+The parameter $\mu$, typically referred to as a signal strength, is a common scale factor for the expected signal contribution. 
 A particular BSM model predicting $s(\boldsymbol{\theta})$ is said to be excluded at some confidence level 
 when every value of $\mu\ge1$ is excluded at at least that confidence level.
 
-In order to acheive a good senstivity to a wide range of BSM models, searches are often performed 
+In order to achieve a good sensitivity to a wide range of BSM models, searches are often performed 
 by categorising events with different final states or according to some discriminating variable. 
 The precise modelling of the backgrounds can therefore be rather complicated, involving many 
 nuisance parameters. For this reason, the full likelihood is therefore often 
@@ -37,7 +37,7 @@ In practise, the likelihood defined in Equation~\ref{eq:generic-likelihood} can 
 range of BSM models. Typically these are referred to as ``control'' regions in that they allow to constrain the nuisance parameters that  
 cause large variations in the background model.
 In this note, the distinction is made between these regions and ``search'' regions, which instead 
-are expected to include contrubutions from the signal, under some particular set of BSM models. A search region 
+are expected to include contributions from the signal, under some particular set of BSM models. A search region 
 is defined by a set of criteria used to select events. These criteria can include categorisations based on 
 the number of a certain type of object in the event such as jets or 
 charged leptons, and intervals in some discriminating variable such as the missing transverse momentum in the event. The data in each search region, $i$, is characterised 
@@ -75,11 +75,11 @@ assumption to be made.}
 \item{The covariance, and therefore only the linear correlation, between the background contribution in each region is enough to approximate $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ 
 at least for values of $\boldsymbol{\theta}$ which are close to $\tilde{\boldsymbol{\theta}}$.}
 
-\item{The number of events $n_{i}$ are statistically independant from one another and the background contributions $b_{i}$ and covariance matrix $\mathrm{\mathbf{V}}$ are 
-statistically independant of the data from all search regions. This is true when there are no events which are included in more than one search region and when the methods used to 
+\item{The number of events $n_{i}$ are statistically independent from one another and the background contributions $b_{i}$ and covariance matrix $\mathrm{\mathbf{V}}$ are 
+statistically independent of the data from all search regions. This is true when there are no events which are included in more than one search region and when the methods used to 
 determine $b_{i}$ and $\mathrm{\mathbf{V}}$ do not use the data from the search regions.}
 
-\item{The sytstematic uncertainties in the signal can be neglected. These will strongly depend on the specific BSM physics model. 
+\item{The systematic uncertainties in the signal can be neglected. These will strongly depend on the specific BSM physics model. 
 Systematic uncertainties on the signal can be accounted for by adding appropriate nuisance parameters with Gaussian constraints 
 as for the background contributions. }
 \end{itemize}
@@ -111,9 +111,9 @@ Figure~\ref{fig:toy-example} (b) shows the variation of the expected contributio
 The dot and dot--dashed histograms show the expected 
 contributions when each of the two nuisance parameters are varied positively and negatively, respectively.
 Finally, the expected contribution from a BSM physics signal is shown. 
-The ratio of the expected signal to the total background esimtate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (b). 
+The ratio of the expected signal to the total background estimate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (b). 
 In this example, the signal is provided, however, the 
-signal can be exchanged for some other BSM physics process using a number of publically available event generators and tools that simulate the response 
+signal can be exchanged for some other BSM physics process using a number of publicly available event generators and tools that simulate the response 
 and resolution of the CMS detector. The details of producing signal estimates is beyond the scope of this note. 
 
 \begin{figure}[hbt]
@@ -129,7 +129,7 @@ and resolution of the CMS detector. The details of producing signal estimates is
 The relevant information in the toy search for the simplified likelihood construction is summarised in Table~\ref{tab:toytable}.
 Furthermore, Figure~\ref{fig:covariance} gives the covariance between the total rate of 
 background contributions expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
-backgrounds are not independant in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
+backgrounds are not independent in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
 across the regions. 
 
 \begin{table}[!htb]
@@ -191,7 +191,7 @@ uncertainty in $\mu$ often provides a good indication of the sensitivity of a se
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
-background yields by setting $V_{ij}=0$ for $i\neq j$. The results subsitituing $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
+background yields by setting $V_{ij}=0$ for $i\neq j$. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
 namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
 likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
