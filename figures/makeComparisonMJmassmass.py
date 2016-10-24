@@ -73,8 +73,8 @@ def makeNice2DPlot(slname,lname, title):
   scan_sl_obs.SetTitle("");
 
   cont_sl_obs.SetLineColor(ROOT.kAzure+1)
-  cont_sl_exp.SetLineColor(ROOT.kAzure+1)
-  cont_sl_exp.SetLineStyle(2)
+  cont_sl_exp.SetLineColor(ROOT.kMagenta+1)
+  cont_sl_exp.SetLineStyle(1)
   
   scan_fl_obs.SetLineColor(ROOT.kBlack)
   scan_fl_exp.SetLineColor(ROOT.kBlack)
