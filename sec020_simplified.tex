@@ -193,8 +193,8 @@ uncertainty in $\mu$ often provides a good indication of the sensitivity of a se
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
 background yields by setting $V_{ij}=0$ for $i\neq j$. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
-namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown.The simplified 
-likelihood provides shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
+namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
+likelihood shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
 
 
@@ -207,7 +207,37 @@ addition, the width of the curve ignoring the correlation is larger than the oth
   \end{center}
 \end{figure}
 
+The multivariate gaussian approximation may be expected to perform less well 
+for values of systematic uncertainty pulled significantly from their central
+values. To test this the two systematic uncertainties are set to their $+1.5\sigma$
+values when generating the data (the covariance is unchanged). Figure~\ref{fig:likelihoodscan_bias} shows the resultant 
+value of $q(\mu)$ as a function of $\mu$. The agreement between the full and simplfied likelihoods is significantly worsened 
+compared to Figure~\ref{fig:likelihoodscan} and highlights the limitations of the gaussian approximation
+when systematic uncertainties are pulled significantly.
 
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/r_bias.pdf}
+   \caption{The value of $q(\mu)$, when including a large systematic bias in generating the data, defined using the simplified likelihood using the full covariance matrix (open blue points), and defined using the full likelihood (solid black line).}
+   \label{fig:likelihoodscan_bias} 
+  \end{center}
+\end{figure}
+
+Finally, to illustrate an extreme case where the simplified likelihood approach may not be appropriate,
+a systematic uncertainty with a highly asymmetric probability density function is 
+included on the normalisation of the background (a log normal with
+mean=0 and standard deviation = 0.5, corresponding to a skewness of 1.8). Figure ~\ref{fig:likelihoodscan_asymm} shows the resultant
+value of $q(\mu)$ as a function of $\mu$ for the full and simplified likelihoods. 
+It is clear that the there is a bias in the estimate of $\hat{\mu}$ from the simplified likelihood. 
+This is due to the use of symmetric, gaussian constraints to model a highly asymmetric uncertainty.
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/r_asymm.pdf}
+   \caption{The value of $q(\mu)$, when including a highly asymmetric uncertainty on the background normalisation, defined using the simplified likelihood using the full covariance matrix (open blue points), and defined using the full likelihood (solid black line).}
+   \label{fig:likelihoodscan_asymm} 
+  \end{center}
+\end{figure}
 % covariance must be taken as the result of a maximum likelihood fit considering the control regions only. 
 % If the control region is not included then the results fit may be taken. 
 %%____________________________________________________________________________||
