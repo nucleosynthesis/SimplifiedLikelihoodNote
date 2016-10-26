@@ -3,7 +3,7 @@
 \label{sec:simplified-likelihood}
 
 While several methods for extracting 
-limits are used, the most common approach follows the frequentist paradigm using the procedure 
+limits are used, the most common approach at CMS follows the procedures  
 described in Refs.~\cite{Chatrchyan:2012tx} and ~\cite{CMS-NOTE-2011-005}. 
 The observed data are interpreted using a likelihood defined as,
 
@@ -94,7 +94,7 @@ $\tilde{\boldsymbol{\theta}}=0$. The simplified likelihood can now be expressed 
 \end{equation}
 
 where $\mathrm{\mathbf{V}}$ represents the covariance matrix for the expected background contributions across the search regions.
-In the following example, the simplfied likelihood is constructed using the statistics package {\sc RooFit}~\cite{roofit} but it should be noted that 
+In the following example, the simplified likelihood is constructed using the statistics package {\sc RooFit}~\cite{roofit} but it should be noted that 
 the procedure does not prohibit the use of any other tool for its construction. 
 
 \subsection{Example of constructing the simplified likelihood}
@@ -112,7 +112,7 @@ Figure~\ref{fig:toy-example} (b) shows the variation of the expected contributio
 The dot and dot--dashed histograms show the expected 
 contributions when each of the two nuisance parameters are varied positively and negatively, respectively.
 Finally, the expected contribution from a BSM physics signal is shown. 
-The ratio of the expected signal to the total background estimate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (b). 
+The ratio of the expected signal to the total background estimate in each region is shown in the lower panel of Figure~\ref{fig:toy-example} (a). 
 In this example, the signal is provided, however, the 
 signal can be exchanged for some other BSM physics process using a number of publicly available event generators and tools that simulate the response 
 and resolution of the CMS detector. The details of producing signal estimates is beyond the scope of this note. 
@@ -172,9 +172,10 @@ can be summarised as follows;
 \end{itemize}
 
 It is important to note that the estimates of both the background contributions and the 
-covariance matrix do not use the data in the 8 search regions, making them statistically independent from the data. The data in the search regions 
-can be used to further constrain the background (meaning to reduce the uncertainties on the nuisance parameters $\boldsymbol{\theta}$) through the use 
-of the profiled likelihood ratio, which is defined as 
+covariance matrix do not use the data in the 8 search regions, making them statistically independent from the data. 
+
+The simplified likelihood can be used to perform a number of statistical tests using both Bayesian and freqeuentist techniques. For brevity, in the rest of this section, 
+the statistical procedures used will follow the frequentist paradigm, employing the use of the profile likelihood. The profiled likelihood is defined as, 
 
 \begin{equation}
 q(\mu) = -2\ln \dfrac {\mathcal{L}_{S}(\mu,\hat{\boldsymbol{\theta}}_{\mu})} {\mathcal{L}_{S}(\hat{\mu},\hat{\hat{\boldsymbol{\theta}}})}
@@ -207,34 +208,90 @@ addition, the width of the curve ignoring the correlation is larger than the oth
   \end{center}
 \end{figure}
 
-The multivariate gaussian approximation may be expected to perform less well 
-for values of systematic uncertainty pulled significantly from their central
-values. To test this the two systematic uncertainties are set to their $+1.5\sigma$
-values when generating the data (the covariance is unchanged). Figure~\ref{fig:likelihoodscan_bias} shows the resultant 
-value of $q(\mu)$ as a function of $\mu$. The agreement between the full and simplfied likelihoods is significantly worsened 
-compared to Figure~\ref{fig:likelihoodscan} and highlights the limitations of the gaussian approximation
-when systematic uncertainties are pulled significantly.
+
+While typically, the approximations necessary to construct the simplified likelihood are valid in a wide range of searches, 
+it is important to note that there are scenarios in which they are expected to be invalid. 
+In the toy example given, the expected background and data in the search regions with a low signal to background ratio, are in good agreement. 
+The fitted values of the nuisance parameters, therefore will be smaller than the square root of the variance of the 
+background expectation,  $|\hat{\theta}_{i,\mu}| \lt \sqrt{V_{ii}}$. This means the nuisance parameters do not need to be pulled too far from 0 in order to  
+fit the data. The variation of these values as a function of $\mu$ are shown in Figure~\ref{fig:nuisancevariation} (a). 
+The multivariate Gaussian is not expected to provide a good approximation the true probability density function of the nuisance parameters for 
+large values of the nuisance parameters.
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/scan_nuisances.pdf}}
+   \subfloat[][]{\includegraphics[width=1.2\cmsFigWidth]{figures/scan_nuisances_bias.pdf}}
+   \caption{Values of $\dfrac{\hat{\theta}_{i,\mu}}{\sqrt{V_{ii}}}$ as a function of $\mu$ when using the original data $n_{i}$ and the replacement data $n'_{i}$.}
+   \label{fig:nuisancevariation} 
+  \end{center}
+\end{figure}
+
+
+To illustrate this, a new set of observed event counts for each of the 8 search regions, $n'_{i}$, is produced for which the values of 
+$\hat{\boldsymbol{\theta}}_{\mu}$ are further from 0. Figure~\ref{fig:comparedata} shows a comparison of the event counts $n_{i}$ and 
+$n'_{i}$ and the total expected backgrounds $b_{i}$. While the counts in both cases 
+follow the in both cases reasonably well, the difference between $b_{1}$ and $n'_{i}$ is significant. Since the expected contribution of the signal 
+is relatively small, the fit must account for this difference by moving the nuisance parameters away from 0. Figure~\ref{fig:nuisancevariation} (b) shows the fitted
+values of the nuisance parameters, relative to the square root of the background variance, as a function of $\mu$.
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/newdata.pdf}
+   \caption{Comparison of the background expectations, $b_{i}$, and the original and replacement data, $n_{i}$ and $n'_{i}$,  in each of the 8 search regions.}
+   \label{fig:comparedata} 
+  \end{center}
+\end{figure}
+
+
+Figure~\ref{fig:likelihoodscan_bias} shows the resulting 
+values of $q(\mu)$ as a function of $\mu$ when replacing $n_{i}\rightarrow n'_{i}$ in Equation~\ref{eq:full-likelihood}. The agreement between the 
+full and simplified likelihoods is significantly poorer compared to Figure~\ref{fig:likelihoodscan}. This highlights the limitations of 
+the multivariate Gaussian approximation as a model of the probability density function for 
+the nuisance parameters when the values of the nuisance parameters are large. 
 
 \begin{figure}[hbt]
   \begin{center} 
    \includegraphics[width=1.5\cmsFigWidth]{figures/r_bias.pdf}
-   \caption{The value of $q(\mu)$, when including a large systematic bias in generating the data, defined using the simplified likelihood using the full covariance matrix (open blue points), and defined using the full likelihood (solid black line).}
+   \caption{The value of $q(\mu)$,  defined using the simplified likelihood replacing $n_{i}\rightarrow n'_{i}$ 
+   (open blue points), and defined using the full likelihood (solid black line).}
    \label{fig:likelihoodscan_bias} 
   \end{center}
 \end{figure}
 
-Finally, to illustrate an extreme case where the simplified likelihood approach may not be appropriate,
-a systematic uncertainty with a highly asymmetric probability density function is 
-included on the normalisation of the background (a log normal with
-mean=0 and standard deviation = 0.5, corresponding to a skewness of 1.8). Figure ~\ref{fig:likelihoodscan_asymm} shows the resultant
-value of $q(\mu)$ as a function of $\mu$ for the full and simplified likelihoods. 
-It is clear that the there is a bias in the estimate of $\hat{\mu}$ from the simplified likelihood. 
-This is due to the use of symmetric, gaussian constraints to model a highly asymmetric uncertainty.
+The multivariate Gaussian approximation can also fail in the presence of systematic uncertainties which yield highly asymmetric 
+variations in the background expectations. To illustrate this case, an additional uncertainty is included in the toy example which 
+allows the total rate of the two background contributions summing over all 8 search regions, $N^{Z}_\mathrm{total}$ and $N^{W}_{\mathrm{total}}$, 
+is allowed to vary as,
+
+\begin{align}
+N^{Z}_{\mathrm{total}} \rightarrow N^{Z}_{\mathrm{total}}(1.5)^{\eta} && N^{W}_{\mathrm{total}} \rightarrow N^{W}_{\mathrm{total}}(1.5)^{\eta}
+\label{eq:meh}
+\end{align}
+
+where $\eta$ is some nuisance parameter in the full likelihood. Figure~\ref{fig:asymmgauss} shows an example comparison between the 
+true probability density function for $\boldsymbol{\theta}$, derived from pseudo-experiments varying the nuisance parameters  
+of the full likelihood, and the Gaussian approximation, for search regions 7 and 8. The approximation is clearly not valid in this case. 
+
+\begin{figure}[hbt]
+  \begin{center} 
+   \includegraphics[width=1.5\cmsFigWidth]{figures/compare_pdf.pdf}
+   \caption{Contours of constant probability density for the true probability density 
+   function (blue lines) and the Gaussian approximation (red lines), 
+   for the nuisance parameters $\theta_{4}$ and $\theta_{8}$.}
+   \label{fig:asymmgauss} 
+  \end{center}
+\end{figure}
+
+Figure ~\ref{fig:likelihoodscan_asymm} shows the resulting 
+value of $q(\mu)$ as a function of $\mu$ for the full and simplified likelihoods, after the introduction of the asymmetric systematic uncertainty.  
+The use of the simplified likelihood in this case would yield a biased estimate of $\hat{\mu}$.  
 
 \begin{figure}[hbt]
   \begin{center} 
    \includegraphics[width=1.5\cmsFigWidth]{figures/r_asymm.pdf}
-   \caption{The value of $q(\mu)$, when including a highly asymmetric uncertainty on the background normalisation, defined using the simplified likelihood using the full covariance matrix (open blue points), and defined using the full likelihood (solid black line).}
+   \caption{The value of $q(\mu)$, when including a highly asymmetric systematic uncertainty on the total background expectations, defined 
+   using the simplified likelihood (open blue points), and defined using the full likelihood (solid black line).}
    \label{fig:likelihoodscan_asymm} 
   \end{center}
 \end{figure}
