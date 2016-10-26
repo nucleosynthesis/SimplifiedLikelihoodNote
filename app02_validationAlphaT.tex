@@ -3,19 +3,19 @@
 The \alphat analysis is an inclusive search for supersymmetry which
 uses a fine categorisation in \nj,\nb,\scalht,and \mht to provide
 sensitivity to a wide range of new physics models. The results 
-of this search for 12.9\fb of data at 13TeV from Run 2 of the LHC
+of this search using 12.9\fb of data at 13\TeV from Run 2 of the LHC
 are described fully in \cite{CMS-PAS-SUS-16-016}. In this section,
 the use of aggregate regions is discribed for the \alphat analysis, as well as a 
 validation of the simplified likelihood method.
 
 \subsubsection{Defining agregate regions}
 
-For a binned analysis which control regions are used to constrain backgrounds in the signal region
-(with relevant systematics) the likelihood may generally be written in two parts, splitting the signal
-and control regions. To show how the aggregate regions are defined a simplified scenario 
-where each signal bin contains only one background and where each control region bin is used to
-predict only one signal region bin is considered below. It is trivial to see how this may
-be extended to more complex scenarios. The signal region section of the likehood may be written
+The \alphat analysis is a binned analysis which uses one or more signal depleted control region(s) 
+to constrain standard model backgrounds in the signal region with relevant systematics.
+The likelihood may be written in two parts, splitting the signal and control regions. 
+To illustrate how the aggregate regions may be defined from the full likelihood, 
+a simplified scenario is considerd in which each signal bin contains one background, however,
+it is easy to see how this may be extended. In this case, the signal region section of the likehood may be written
 as a product over bins, i, as in Equation~\ref{eq:hadronicLikelihood}.
 
 \begin{equation}
@@ -29,7 +29,7 @@ the background prediction from simulation, $\overline{\rho_{i}}$ the set of syst
 on the signal region prediction, ${a_i}$ an unconstrained parameter that will connect to the 
 control region, $s_{\mathrm{sig}}$ the signal model contribution from simulation, 
 $\overline{\rho}_{i,sig}$ the set of systematics on the signal contribution and $\mu$ the
-unconstrained signal strength parameter.  The connection to the control region 
+unconstrained signal strength parameter.  The connection to each control region 
 may be written as in Equation~\ref{eq:controlLikelihood}.
 
 \begin{equation}
@@ -38,16 +38,16 @@ may be written as in Equation~\ref{eq:controlLikelihood}.
 \label{eq:controlLikelihood}
 \end{equation}
 
-where parameters are as defined in Equation~\ref{eq:hadronicLikelihood} but applied in the control region. 
+where parameters are as defined in Equation~\ref{eq:hadronicLikelihood} but for the control region. 
 Here $\overline{\rho}_{\mathrm{control},i}$ contains both systematic uncertainties on the control region
 and on the connection of the control to signal region. Correlation between bins in the signal
 and control regions are introduced through the correlation or anticorrelation of the systematic uncertainties
-contained in both $\overline{\rho}_{\mathrm{signal},i}$ and $\overline{\rho}_{\mathrm{control},i}$. For a 
-more complex likelihood additional correlations are introduced when control regions are used to predict
-multiple signal region bins. The overall likelihood of $\mathcal{L}_{\mathrm{signal}}\times\mathcal{L}_{\mathrm{control}}$
+contained in both $\overline{\rho}_{\mathrm{signal},i}$ and $\overline{\rho}_{\mathrm{control},i}$. Additional correlations are introduced if
+control regions are used to predict the background in multiple signal region bins. 
+The overall likelihood of $\mathcal{L} = \mathcal{L}_{\mathrm{signal}}\times\mathcal{L}_{\mathrm{control}}$
 is then minimized with respect to $\mu$,$\rho$ and $\rho_^{mathrm{s}}$. 
 
-The likelihood for the aggregate regions may then be defined as in Equation~\ref{eq:agg-hadronicLikelihood}.
+From $\mathcal{L}$ the likelihood for the aggregate regions may then be defined as in Equation~\ref{eq:agg-hadronicLikelihood}.
 
 \begin{equation}
 \mathcal{L}_{\mathrm{l}}=\prod_{agg}{\mathrm{Pois}(n_{\mathrm{signal},agg} |\,\sum_i^{k_{agg}}{b_{\mathrm{signal},i}
@@ -56,10 +56,10 @@ The likelihood for the aggregate regions may then be defined as in Equation~\ref
 \label{eq:agg-hadronicLikelihood}
 \end{equation}
 
-where the contributions of all bins being merged are summed to provide a total background and signal
-contribution to the aggregate bin. The control region section of the likelihood
-is unchanged and so the correlation model for the predictions is maintained. 
-The likelihood is minimized with respect to $mu$,$\rho$, $\a_i$, $\rho_^{mathrm{s}}$ as 
+where the contributions of all bins being merged into aggregate regions are 
+summed to provide a total background and signal contribution to the aggregate bin. 
+The control region section of the likelihood is unchanged and so the correlation model 
+for the predictions is maintained. The likelihood is minimized with respect to $mu$,$\rho$, $\a_i$, $\rho_^{mathrm{s}}$ as 
 before. For analyses which do not include a control region explicitely in the likelihood 
 the aggregation process is similar, however, in this case the parameters $a_i$ are not 
 freely floating but are instead constrained according to a pdf, such as a gamma distribution, 
@@ -68,7 +68,7 @@ likelihoods are otherwise unchanged. In Section~\ref{sec:ssr-alphat} an example 
 aggregate regions is shown for the \alphat analysis.
 
 \subsubsection{Application of the the aggregate regions with the \alphat analysis}
-
+\label{sec:ssr-alphat}
 The final \nj,\nb categories and \scalht binning used for the full likelihood 
 are summarised in Table~\ref{tab:binning}. These bins are further split into
 $100 \GeV$ \mht bins as defined in \cite{alphaT}. The control region
@@ -107,10 +107,12 @@ predictions are inclusive in \mht but binned according to Table~\ref{tab:binning
 The $\mathcal{O}800$ bins provide generic sensitivity but are not optimal
 for simple reinterpretation. A simplification can be made that maintains
 sensitivity to a large class of models through the use of aggregate regions.
+The thirty one jet categories are reduced to eight aggregate jet categories while
+the up to eight \scalht bins are merged into one ($\scalht \geq 200 GeV$).
 The final categories are shown in Table~\ref{tab:agg-binnning}.
 These are defined to be disjoint, contiguous and to cover the full
-signal region and so in combination to reflect sensitivity from 
-full signal region phase space. In addition
+signal region and so in combination to reflect sensitivity from the
+full signal region phase space. In addition,
 for each aggregate category eight exclusive \mht bins with
 lower bounds $100,200,300,400,500,600,700,\ge800GeV$ are defined.
 
@@ -138,20 +140,19 @@ lower bounds $100,200,300,400,500,600,700,\ge800GeV$ are defined.
 The jet categories are merged to four seperate categories motivated by their sensitivity to 
 different new physics topologies. For example, the Monojet-like topology is targeted towards
 dark matter models and compressed spectra while the high \nj topology targets 
-uncompressed gluino and squark models.
-The b-jet categories are combined as $\nb=0,1$ \nb models and $\nb\geq2$ targeted at
+uncompressed gluino and squark models. The b-jet categories are combined 
+as $\nb=0,1$ \nb models and $\nb\geq2$ targeted at
 light and heavy flavour new physics respectively. Finally, the \scalht dimension is 
 entirely merged as the \mht dimension generally provides better sensitivity
-for new physics models. The use of the
-aggregate regions ensures that the components of the background are still
-corrected based on the nominal, finely binned regions with relevant systematics.
+for new physics models. The use of the aggregate regions ensures 
+that the backgrounds are still predicted by the nominal, finely binned regions (with appropriate systematics).
 
 \subsubsection{Results using aggregate regions for the \alphat analysis}
 
 The aggregate regions provide an easily comprehensible
 overview of the signal region when compared to the results
 of the nominal signal bins. Figure~\ref{fig:aggFitResult} shows
-the post fit predictions in the mid and high njet categories
+the post fit predictions in the mid and high \nj categories
 for the aggregate regions compared to the observed data.
 
 To evaluate the effect on the reach of the \alphat analysis the expected and observed 95\% upper limit
@@ -159,10 +160,9 @@ on the signal strength, defined as in \cite{limit-stuff}, for the full signal re
 is compared that using the aggregate regions. The limits are shown side by side
 in Fig~\ref{fig:limit-planes} for three models, T2tt T2bb and T1bbbb. Where the mass
 splittings are small the expected limits typically reduce by $\mathcal{O} 100\GeV$ 
-compared to the full signal region for all models  
+compared to the full signal region.
 
-The predictions from the aggregate regions
-can be used to provide predictions and uncertainties
+The predictions from the aggregate regions can be used to provide predictions and uncertainties
 to allow recasters to interpret their own models. In the case of the \alphat search
 this is significantly easier than recasting the full signal region. To make best use of this information, 
 as will be discussed in Section~\ref{sec:simplified-likelihood}, 
@@ -197,9 +197,10 @@ the covariance matrix encoding the level of correlation between bins must also b
 \subsubsection{Validation of the simplified likelihood}
 
 The covariance and predictions of the aggregate regions for the \alphat analysis may then 
-be used to validate the simplified likelihood. Figure~\ref{fig:likelihoodscan-alphaT} shows the value of $q(\mu)$ as a function of $\mu$ for 
+be used to validate the simplified likelihood. Figure~\ref{fig:likelihoodscan-alphaT} 
+shows the value of $q(\mu)$ as a function of $\mu$ for 
 a benchmark model which has substantial contribution in many different signal regions 
-(T2tt mStop = , mLSP = ).The values when $q(\mu)$ is defined using the likelihood of Equation~\ref{eq:full-likelihood} 
+(T2tt, mStop = 800, mLSP = 1). The values when $q(\mu)$ is defined using the likelihood of Equation~\ref{eq:full-likelihood} 
 are shown and compared with the same definition but assuming no correlations between the 
 background yields by setting $V_{ij}=0$ for $i\neq j$. The results using the full likelihood (with aggregate regions and no signal systematics) 
 used by the \alphat analysis are also shown. The simplified likelihood shows good agreement with the full likelihood 
@@ -214,9 +215,9 @@ while it is clear that ignoring the correlations results in a bias of the estima
   \end{center}
 \end{figure}
 
-In Figure~\ref{fig:limitPlanes} the ratio between the limit with the simplified and the full likelihood is shown.
-The contours of $\mu=1$ excluded at $95\%$ for the full likelihood, the simplified likelihood
-and the simplified likelihood where correlations are neglected are overlaid. When correlations
+In Figure~\ref{fig:limitPlanes} the ratio between the limit with the simplified and the full likelihood is shown
+for the simplified model T2bb. The contours of $\mu=1$ excluded at $95\%$ for the full likelihood, 
+the simplified likelihood and the simplified likelihood where correlations are neglected are overlaid. When correlations
 are considered the simplified and full likelihood provide comparable results, however, if 
 these are neglected a significant bias is observed.
 
