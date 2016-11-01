@@ -21,7 +21,7 @@ parameters are constrained by external measurements, $\tilde{\boldsymbol{\theta}
 probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
 The parameter $\mu$, typically referred to as a signal strength, is a common scale factor for the expected signal contribution. 
 A particular BSM model predicting $s(\boldsymbol{\theta})$ is said to be excluded at some confidence level 
-when every value of $\mu\ge1$ is excluded at at least that confidence level.
+when every value of $\mu\ge1$ is excluded at least at that confidence level.
 
 In order to achieve a good sensitivity to a wide range of BSM models, searches are often performed 
 by categorising events with different final states or according to some discriminating variable. 
@@ -34,7 +34,7 @@ re-interpret searches for new physics through the use of a simplified likelihood
 
 \subsection{Defining the simplified likelihood}
 In practise, the likelihood defined in Equation~\ref{eq:generic-likelihood} can include regions in which negligible signal is expected under a wide 
-range of BSM models. Typically these are referred to as ``control'' regions in that they allow to constrain the nuisance parameters that  
+range of BSM models. Typically these are referred to as ``control'' regions in that they allow for the constraint of nuisance parameters that  
 cause large variations in the background model.
 In this note, the distinction is made between these regions and ``search'' regions, which instead 
 are expected to include contributions from the signal, under some particular set of BSM models. A search region 
@@ -128,7 +128,7 @@ and resolution of the CMS detector. The details of producing signal estimates is
 \end{figure}
 
 The relevant information in the toy search for the simplified likelihood construction is summarised in Table~\ref{tab:toytable}.
-Furthermore, Figure~\ref{fig:covariance} gives the covariance between the total rate of 
+Furthermore, Figure~\ref{fig:covariance} gives the covariance, $V$, between the total rate of 
 background contributions expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
 backgrounds are not independent in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
 across the regions. 
@@ -193,7 +193,8 @@ uncertainty in $\mu$ often provides a good indication of the sensitivity of a se
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
 is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown and compared with the same definition but assuming no correlations between the 
-background yields by setting $V_{ij}=0$ for $i\neq j$. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
+background yields by setting $V_{ij}=0$ for $i\neq j$. In this case, the systematic uncertainty in each bin is entirely separated
+from the systematic uncertainty in all other bins. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
 namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
 likelihood shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
