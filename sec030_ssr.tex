@@ -31,7 +31,7 @@ Similarly, the signal expectations and observed number of events are substituted
 The covariance matrix in the aggregate search regions is related to the full covariance matrix as, 
 
 \begin{align}
-V_{IJ}=\sum_{ij}V_{ij}
+V_{IJ}=\sum^N_{t=1}{\frac{(\sum_{i}b^t_i-b_{i})\times(\sum_{j}b^t_j-b_{j})}{N}} = \sum_{i}\sum_{j}V_{ij}
 \label{eq:agg-cov}
 \end{align}
 
