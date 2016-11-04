@@ -19,7 +19,7 @@ $\boldsymbol{\theta}=\left(\theta_{1},\theta_{2}...\right)$ are nuisance paramet
 signal $s(\boldsymbol{\theta})$ and background $b(\boldsymbol{\theta})$ models due to systematic uncertainties. Often, these nuisance 
 parameters are constrained by external measurements, $\tilde{\boldsymbol{\theta}}$, which are encoded in the 
 probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
-The parameter $\mu$, typically referred to as a signal strength, is a common scale factor for the expected signal contribution. 
+The parameter $\mu$, typically referred to as signal strength, is a common scale factor for the expected signal contribution. 
 A particular BSM model predicting $s(\boldsymbol{\theta})$ is said to be excluded at some confidence level 
 when every value of $\mu\ge1$ is excluded at least at that confidence level.
 
@@ -27,8 +27,9 @@ In order to achieve a good sensitivity to a wide range of BSM models, searches a
 by categorising events with different final states or according to some discriminating variable. 
 The precise modelling of the backgrounds can therefore be rather complicated, involving many 
 nuisance parameters. For this reason, the full likelihood is therefore often 
-too detailed to describe in a CMS publication and includes too many (nuisance) parameters to provide numerically. 
-The following describes a procedure for using a reduced set of information provided by the CMS Collaboration to 
+too detailed to describe in a publication and includes more detail than needed for the level of accuracy
+typically required in reinterpretations.
+The following describes a procedure for using a reduced set of information to 
 re-interpret searches for new physics through the use of a simplified likelihood. 
 
 
@@ -37,12 +38,12 @@ In practise, the likelihood defined in Equation~\ref{eq:generic-likelihood} can 
 range of BSM models. Typically these are referred to as ``control'' regions in that they allow for the constraint of nuisance parameters that  
 cause large variations in the background model.
 In this note, the distinction is made between these regions and ``search'' regions, which instead 
-are expected to include contributions from the signal, under some particular set of BSM models. A search region 
-is defined by a set of criteria used to select events. These criteria can include categorisations based on 
-the number of a certain type of object in the event such as jets or 
+are expected to include significant contributions from the signal, under some particular set of BSM models. Regions
+are defined by a set of criteria used to select events. These criteria can include categorisations based on 
+the ranges of a number of a certain type of object in the event such as jets or 
 charged leptons, and intervals in some discriminating variable such as the missing transverse momentum in the event. The data in each search region, $i$, is characterised 
 by a single number, $n_{i}$ which is the observed number of events. The likelihood is therefore constructed from a product of counting 
-experiments, representing each search region, in one or more search regions. 
+experiments, where each counting experiment represents a search region. 
 For a given search region, $i$, the probability to observe $n_{i}$ events is given by
 
 \begin{equation}
@@ -65,7 +66,7 @@ The probability to simultaneously observe each of the $n_{i}$ events in $N$ sear
 \label{eq:poisson-prob}
 \end{equation}
 
-Some simplifying assumptions must be made in order to avoid the necessity of publishing the full probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
+Some simplifying assumptions must be made in order to reduce the complexity of the full probability density function $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$. 
 
 \begin{itemize}
 \item{The constraints on the background contributions are Gaussian such that the distribution of the number of background events is symmetric about the expectation, $b_{i}$, 
@@ -84,7 +85,7 @@ Systematic uncertainties on the signal can be accounted for by adding appropriat
 as for the background contributions. }
 \end{itemize}
 
-Under these assumptions, $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ can be modelled as a multivariate Gaussian with the mean vector identified with external measurements of 
+Under these assumptions, $p(\tilde{\boldsymbol{\theta}}|\boldsymbol{\theta})$ can be modelled as a multivariate Gaussian distribution with the mean vector identified with external measurements of 
 $\tilde{\boldsymbol{\theta}}=0$. The simplified likelihood can now be expressed as,
 
 \begin{equation}
@@ -109,8 +110,8 @@ the procedure does not prohibit the use of any other tool for its construction.
 \label{sec:sl-toy}
 
 A toy example of a search for BSM physics is represented in Figure~\ref{fig:toy-example}. The search is performed using 8 mutually exclusive search regions 
-which vary in the expected contributions from backgrounds and a potential BSM physics signal. The backgrounds of this search are $\mathrm{Z+jets}$ and $\mathrm{W+jets}$ processes in which the 
-W or Z boson decays to final states with a neutrino, which are commonly the dominant sources of backgrounds in searches for BSM physics. Figure~\ref{fig:toy-example} (a) indicates the 
+which vary in the expected contributions from backgrounds and a potential BSM physics signal. Here we assume background contriubtions from two sources,
+in the following labelled $\mathrm{Z+jets}$ and $\mathrm{W+jets}$. Figure~\ref{fig:toy-example} (a) indicates the 
 number of observed events in each of the search regions as well as the expected contribution from the two different sources of background, stacked on top of one another. 
 The background estimates include systematic uncertainties related to theoretical uncertainties, when the backgrounds are derived using 
 simulation, and experimental uncertainties related to the resolutions and response of the detector. They can also include a statistical component 
@@ -135,7 +136,7 @@ and resolution of the CMS detector. The details of producing signal estimates is
   \end{center}
 \end{figure}
 
-The relevant information in the toy search for the simplified likelihood construction is summarised in Table~\ref{tab:toytable}.
+The relevant information  to construct the simplified likelihood for the toy search is summarised in Table~\ref{tab:toytable}.
 Furthermore, Figure~\ref{fig:covariance} gives the covariance, $V$, between the total rate of 
 background contributions expected in each of the search regions. The non-zero off-diagonal values are a result of the fact that the estimate of the 
 backgrounds are not independent in each region since the systematic effects cause correlated variations of the expected contributions of the two backgrounds 
@@ -182,7 +183,7 @@ can be summarised as follows;
 It is important to note that the estimates of both the background contributions and the 
 covariance matrix do not use the data in the 8 search regions, making them statistically independent from the data. 
 
-The simplified likelihood can be used to perform a number of statistical tests using both Bayesian and frequentist techniques. For brevity, in the rest of this section, 
+The simplified likelihood can be used to perform a number of statistical tests using both Bayesian or frequentist techniques. For brevity, in the rest of this section, 
 the statistical procedures used will follow the frequentist paradigm, employing the use of the profile likelihood. The profiled likelihood is defined as, 
 
 \begin{equation}
@@ -196,7 +197,7 @@ likelihood for a fixed value of $\mu$. The value of $\hat{\mu}$ is usually refer
 
 A common estimate of the uncertainty in $\mu$ is to determine the interval in $\mu$ such that $q(\mu)\leq1$ and define the uncertainty as the difference between 
 the end points of that interval and $\hat{\mu}$. Furthermore, the profiled likelihood is a common tool when defining test statistics for setting limits and quantifying excesses 
-in BSM searches performed by the CMS collaboration, a full description of which can be found in Refs.~\cite{Chatrchyan:2012tx}. The 
+in BSM searches performed by the CMS collaboration, a full description of which can be found in Ref.~\cite{Chatrchyan:2012tx}. The 
 uncertainty in $\mu$ often provides a good indication of the sensitivity of a search to a given BSM signal. 
 
 Figure~\ref{fig:likelihoodscan} shows the value of $q(\mu)$ as a function of $\mu$. The values when $q(\mu)$ 
@@ -205,7 +206,7 @@ background yields by setting $V_{ij}=0$ for $i\neq j$. In this case, the systema
 from the systematic uncertainty in all other bins. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
 namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
 likelihood shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
-addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty estimate on $\mu$ will be overestimated.  
+addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty on $\mu$ will be overestimated.  
 
 
 \begin{figure}[hbt]
@@ -271,14 +272,15 @@ the nuisance parameters when the values of the nuisance parameters are large.
 The multivariate Gaussian approximation can also fail in the presence of systematic uncertainties which yield highly asymmetric 
 variations in the background expectations. To illustrate this case, an additional uncertainty is included in the toy example which 
 allows the total rate of the two background contributions summing over all 8 search regions, $N^{Z}_\mathrm{total}$ and $N^{W}_{\mathrm{total}}$, 
-is allowed to vary as,
+varies as,
 
 \begin{align}
 N^{Z}_{\mathrm{total}} \rightarrow N^{Z}_{\mathrm{total}}(1.5)^{\eta} && N^{W}_{\mathrm{total}} \rightarrow N^{W}_{\mathrm{total}}(1.5)^{\eta}
 \label{eq:meh}
 \end{align}
 
-where $\eta$ is some nuisance parameter in the full likelihood. Figure~\ref{fig:asymmgauss} shows an example comparison between the 
+where $\eta$ is a nuisance parameter in the full likelihood, following a Gaussian probability density function with mean 0 and standard devation 1. 
+Figure~\ref{fig:asymmgauss} shows an example comparison between the 
 true probability density function for $\boldsymbol{\theta}$, derived from pseudo-experiments varying the nuisance parameters  
 of the full likelihood, and the Gaussian approximation, for search regions 7 and 8. The approximation is clearly not valid in this case. 
 
@@ -294,7 +296,8 @@ of the full likelihood, and the Gaussian approximation, for search regions 7 and
 
 Figure ~\ref{fig:likelihoodscan_asymm} shows the resulting 
 value of $q(\mu)$ as a function of $\mu$ for the full and simplified likelihoods, after the introduction of the asymmetric systematic uncertainty.  
-The use of the simplified likelihood in this case would yield a biased estimate of $\hat{\mu}$.  
+The use of the simplified likelihood in this case introduces a bias into the estimate of $\hat{\mu}$. Generically, the level of disagreement between
+the full and simplified likelihoods will depend on the validity of the gaussian approximation.
 
 \begin{figure}[hbt]
   \begin{center} 

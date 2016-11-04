@@ -6,10 +6,10 @@ Inclusive searches for new physics typically use fine categorisation to allow
 sensitivity to a wide range of models. However, this can make the use
 of the search for re-interpretation impractical. 
 This section describes how this categorisation may be simplified without neglecting the correlation 
-between the search regions by defining aggregate search regions.
+between the search regions by defining aggregated search regions.
 
 Considering the simplified likelihood defined in Equation~\ref{eq:full-likelihood},
-the likelihood for aggregate search regions may be written by substituting the 
+the likelihood for aggregated search regions may be written by substituting the 
 background predictions by,
 
 \begin{align}
@@ -18,8 +18,8 @@ b_{i} + \theta_i \rightarrow b_I + \theta_I \equiv \sum_{i}b_{i} + \theta_I
 \end{align}
 
 where the sum is over all search regions being aggregated into search region $I$.
-Note that the number of aggregate search regions must be fewer than the total number of search regions and 
-every search region must be contained in a single aggregate search region. 
+Note that the number of aggregated search regions must be fewer than the total number of search regions and 
+every search region must be contained in a single aggregated search region. 
 Similarly, the signal expectations and observed number of events are substituted by, 
 
 \begin{align}
@@ -28,7 +28,7 @@ Similarly, the signal expectations and observed number of events are substituted
 \end{align}
 
 
-The covariance matrix in the aggregate search regions is related to the full covariance matrix as, 
+The covariance matrix in the aggregated search regions is related to the full covariance matrix as, 
 
 \begin{align}
 V_{IJ}=E[\sum_{i}\theta_{i}\times\sum_{j}\theta_{j}] = \sum_{i}\sum_{j}V_{ij}
@@ -39,10 +39,10 @@ where the sum is over all search regions aggregated into search regions $I,J$ an
 value has been used.  The use of the simplified likelihood for the aggregated search regions 
 relies on the same conditions outlined in Section~\ref{sec:simplified-likelihood}. 
 
-\subsection{Example of the use of aggregate search regions}
+\subsection{Example of the use of aggregated search regions}
 \label{sec:agg-toy}
 
-The same toy search described in Section~\ref{sec:sl-toy} is considered for use in an aggregated search. 
+The same toy search described in Section~\ref{sec:sl-toy} is considered for use with aggregated search regions. 
 From Figure~\ref{fig:toy-example} it is clear that search regions 7 and 8  provide the dominant contribution to 
 the sensitivity of the search as the ratio of the expected signal to the background is the largest in these two regions. 
 One may therefore expect that search regions 1--6 can be neglected when deriving constraints on this particular BSM model. 
@@ -50,7 +50,7 @@ However, as the background expectations in these search regions are correlated w
 will result in a loss of sensitivity.  
 Alternatively, the search regions 1--6 may be aggregated using the covariance matrix shown in 
 Figure~\ref{fig:covariance} and Equation~\ref{eq:agg-cov}. The resulting covariance
-between the aggregate search regions is shown in Figure~\ref{fig:agg-covariance}.
+between the aggregated search regions is shown in Figure~\ref{fig:agg-covariance}.
 
 \begin{figure}[hbt]
   \begin{center} 
