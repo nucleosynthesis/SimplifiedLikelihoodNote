@@ -13,8 +13,8 @@ The observed data are interpreted using a likelihood defined as,
 \label{eq:generic-likelihood}
 \end{equation}
 
-where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}))$ is a product of the probability 
-over all events or bins in one or more discriminating variables or event categories to observe the data. The parameters 
+where $\mathcal{P}(\mathrm{data}|\mu\cdot s(\boldsymbol{\theta}) + b(\boldsymbol{\theta}))$ is a product of the probability to 
+observe the data, whether individual events or event counts in in bins in one or more discriminating variables or event categories. The parameters 
 $\boldsymbol{\theta}=\left(\theta_{1},\theta_{2}...\right)$ are nuisance parameters, which are used to model the variation of the 
 signal $s(\boldsymbol{\theta})$ and background $b(\boldsymbol{\theta})$ models due to systematic uncertainties. Often, these nuisance 
 parameters are constrained by external measurements, $\tilde{\boldsymbol{\theta}}$, which are encoded in the 
@@ -205,7 +205,7 @@ is defined using the likelihood of Equation~\ref{eq:full-likelihood} are shown a
 background yields by setting $V_{ij}=0$ for $i\neq j$. In this case, the systematic uncertainty in each bin is entirely separated
 from the systematic uncertainty in all other bins. The results substituting $\mathcal{L}_{S}\rightarrow\mathcal{L}$ in Equation~\ref{eq:llr}, 
 namely using the full likelihood of Equation~\ref{eq:generic-likelihood}, are also shown. The simplified 
-likelihood shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a bias of the estimate of $\hat{\mu}$. In 
+likelihood shows good agreement with the full likelihood while it is clear that ignoring the correlations results in a large discrepancy in the estimate of $\hat{\mu}$. In 
 addition, the width of the curve ignoring the correlation is larger than the other curves meaning the uncertainty on $\mu$ will be overestimated.  
 
 
@@ -296,8 +296,8 @@ of the full likelihood, and the Gaussian approximation, for search regions 7 and
 
 Figure ~\ref{fig:likelihoodscan_asymm} shows the resulting 
 value of $q(\mu)$ as a function of $\mu$ for the full and simplified likelihoods, after the introduction of the asymmetric systematic uncertainty.  
-The use of the simplified likelihood in this case introduces a bias into the estimate of $\hat{\mu}$. Generically, the level of disagreement between
-the full and simplified likelihoods will depend on the validity of the gaussian approximation.
+The use of the simplified likelihood in this case yields a significant difference in the estimate of $\hat{\mu}$, compared to the full likelihood. 
+In general, the level of disagreement between the full and simplified likelihoods will depend on the validity of the gaussian approximation.
 
 \begin{figure}[hbt]
   \begin{center} 
